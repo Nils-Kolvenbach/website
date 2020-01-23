@@ -1,0 +1,26 @@
+table {
+  margin: $spacer 0;
+  border-collapse: collapse;
+  overflow-x: auto;
+  width: 100%;
+
+  td, th {
+    padding: $spacer / 2 $spacer;
+  }
+
+  td {
+    border-top: 1px solid $color-light;
+  }
+
+  tbody {
+    tr {
+      &:hover {
+        background-color: $color-background;
+      }
+      // Striped:
+      // &:nth-child(2n) {
+      //   background-color: $color-background;
+      // }
+    }
+  }
+}

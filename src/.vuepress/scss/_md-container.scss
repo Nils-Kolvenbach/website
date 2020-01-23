@@ -1,0 +1,64 @@
+.asset-container,
+.code-container,
+.table-container,
+.note-container,
+.warning-container,
+.danger-container {
+  display: block;
+  margin: $spacer 0;
+  margin-left: -$spacer * 2;
+  margin-right: -$spacer * 2;
+}
+
+.table-container {
+  table {
+    td, th {
+      &:first-of-type {
+        padding-left: $spacer * 2;
+      }
+      &:last-of-type {
+        padding-right: $spacer * 2;
+      }
+    }
+  }
+}
+
+.code-container {
+  pre {
+    padding: $spacer $spacer * 2;
+    border-radius: 0;
+  }
+}
+
+.note-container,
+.warning-container,
+.danger-container {
+  padding: $spacer $spacer * 2;
+  // border-left: 2px solid $color-light;
+
+  p {
+    margin: 0;
+  }
+
+  .title {
+    font-weight: 600;
+  }
+}
+
+.note-container {
+  background-color: $color-background;
+  border-color: $color-primary;
+  color: darken($color-primary, 20);
+}
+
+.warning-container {
+  background-color: lighten($color-warning, 50);
+  border-color: $color-warning;
+  color: darken($color-warning, 20);
+}
+
+.danger-container {
+  background-color: lighten($color-danger, 55);
+  border-color: $color-danger;
+  color: darken($color-danger, 20);
+}

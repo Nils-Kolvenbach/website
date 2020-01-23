@@ -1,0 +1,186 @@
+code {
+  background-color: $color-text;
+  color: $color-foreground;
+  padding: $spacer / 6 $spacer / 3;
+  margin: 0;
+  font-size: $font-size-monospace;
+  font-family: $font-family-monospace;
+  border-radius: $border-radius / 2;
+}
+
+pre, pre[class*="language-"] {
+  font-size: $font-size-monospace;
+  font-family: $font-family-monospace;
+  line-height: $line-height-monospace;
+  padding: $spacer * 1.25 $spacer * 1.5;
+  margin: $spacer 0;
+  background-color: $color-text;
+  overflow: auto;
+  border-radius: $border-radius;
+
+  code {
+    display: block;
+    color: $color-foreground;
+    padding: 0;
+    padding-left: $spacer;
+    background-color: transparent;
+  }
+}
+
+div[class*="language-"] {
+  position: relative;
+  background-color: $color-text;
+
+  .highlight-lines {
+    user-select: none;
+    padding-top: $spacer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-family: $font-family-monospace;
+    font-size: $font-size-monospace;
+    line-height: $line-height-monospace;
+
+    .highlighted {
+      background-color: lighten($color-text, 20%);
+    }
+  }
+
+  pre, pre[class*="language-"] {
+    background: transparent;
+    position: relative;
+    z-index: 1;
+  }
+
+  &::before {
+    position: absolute;
+    z-index: 3;
+    top: 0.8em;
+    right: 1em;
+    font-size: $font-size-monospace;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  &:not(.line-numbers-mode) {
+    .line-numbers-wrapper {
+      display: none;
+    }
+  }
+
+  &.line-numbers-mode {
+    font-family: $font-family-monospace;
+
+    .highlight-lines .highlighted {
+      position: relative;
+
+      &:before {
+        content: ' ';
+        position: absolute;
+        z-index: 3;
+        left: 0;
+        top: 0;
+        display: block;
+        width: $spacer * 2;
+        height: 100%;
+        background-color: lighten($color-text, 20%);
+      }
+    }
+
+    pre {
+      padding-left: $spacer * 2;
+      vertical-align: middle;
+    }
+
+    .line-numbers-wrapper {
+      font-size: $font-size-monospace;
+      line-height: $line-height-monospace;
+      position: absolute;
+      top: 0;
+      width: $spacer * 2;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.3);
+      padding: $spacer 0;
+
+      br {
+        user-select: none;
+      }
+
+      .line-number {
+        position: relative;
+        z-index: 4;
+        user-select: none;
+        font-size: $font-size-monospace;
+      }
+    }
+
+    &::after {
+      font-family: $font-family-monospace;
+      content: '';
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      width: $spacer * 2;
+      height: 100%;
+      border-right: 1px solid rgba(0, 0, 0, 66%);
+      background-color: $color-text;
+    }
+  }
+}
+
+div[class~="language-sh"] {
+  &::before {
+    content: "Shell";
+  }
+}
+
+div[class~="language-js"] {
+  &::before {
+    content: "JavaScript";
+  }
+}
+
+div[class~="language-ts"] {
+  &:before {
+    content: "TypeScript";
+  }
+}
+
+div[class~="language-sql"] {
+  &:before {
+    content: "SQL";
+  }
+}
+
+div[class~="language-html"] {
+  &:before {
+    content: "HTML";
+  }
+}
+
+div[class~="language-css"] {
+  &:before {
+    content: "CSS";
+  }
+}
+
+div[class~="language-scss"] {
+  &:before {
+    content: "SCSS";
+  }
+}
+
+div[class~="language-json"] {
+  &:before {
+    content: "JSON";
+  }
+}
+
+div[class~="language-md"] {
+  &:before {
+    content: "Markdown";
+  }
+}
+
+@import '~prismjs/themes/prism-tomorrow.css';

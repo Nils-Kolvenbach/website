@@ -1,0 +1,21 @@
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@each $name, $breakpoint in $breakpoints {
+  .hide-#{$name} {
+    @media only screen and (min-width: $breakpoint) {
+      display: none !important;
+    }
+  }
+  .show-#{$name} {
+    @media only screen and (max-width: $breakpoint) {
+      display: none !important;
+    }
+    @media only screen and (min-width: $breakpoint) {
+      display: inherit !important;
+    }
+  }
+}
