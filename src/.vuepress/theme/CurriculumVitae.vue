@@ -17,6 +17,7 @@ export default {
     return {
       cv: [
         {
+          image: '/images/consulting.svg',
           title: 'SEVEN PRINCIPLES AG',
           subtitle: 'Junior Consultant',
           start: 'September 2018',
@@ -29,6 +30,7 @@ export default {
           ]
         },
         {
+          image: '/logo.svg',
           title: 'Self-employed',
           start: 'June 2016',
           end: 'August 2018',
@@ -40,6 +42,7 @@ export default {
           ]
         },
         {
+          image: '/images/search-engine-optimization.svg',
           title: 'explido»iProspect',
           subtitle: 'Trainee SEO',
           start: 'May 2015',
@@ -52,6 +55,7 @@ export default {
           ]
         },
         {
+          image: '/images/start-coding.svg',
           title: 'BBS II Stade',
           subtitle: 'Training as an IT specialist for application development',
           start: 'July 2012',

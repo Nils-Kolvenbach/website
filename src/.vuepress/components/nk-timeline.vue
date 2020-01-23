@@ -7,6 +7,7 @@
           <small v-if="row.subtitle">{{ row.subtitle }}</small>
         </h3>
         <p class="chips"><nk-chip v-for="(chip) in row.chips">{{ chip }}</nk-chip></p>
+        <p><nk-asset :title="row.title" :src="$withBase(row.image)" type="image"></nk-asset></p>
       </div>
       <div class="col-xs-12 col-lg-6">
         <nk-card>
