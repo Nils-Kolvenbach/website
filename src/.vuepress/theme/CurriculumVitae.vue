@@ -30,7 +30,7 @@ export default {
           ]
         },
         {
-          image: '/logo.svg',
+          image: '/images/self-employed.svg',
           title: 'Self-employed',
           start: 'June 2016',
           end: 'August 2018',
