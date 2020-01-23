@@ -3,8 +3,8 @@
     <section id="intro">
       <div class="container">
         <div class="row">
-          <div class="col-xs-12 col-md-3 col-lg-5 col-xl-6 background">
-            <nk-asset class="show-lg" title="Nils Kolvenbach" :src="$withBase('/images/code.svg')" type="image"></nk-asset>
+          <div class="col-xs-12 col-md-3 col-lg-5 col-xl-6">
+            <nk-asset class="show-lg illustration" title="Web Development" :src="$withBase('/images/code.svg')" type="image"></nk-asset>
           </div>
           <div class="col-xs-12 col-md-9 col-lg-7 col-xl-6">
             <nk-asset title="Nils Kolvenbach" src="https://www.gravatar.com/avatar/fab7aa30c10fc4d7f2be8d8bd7ec4c2f?s=192" type="avatar"></nk-asset>
@@ -147,24 +147,9 @@ export default {
     text-align: left;
   }
 
-  // .background {
-
-  //   &:before {
-  //     display: block;
-  //     content: "";
-  //     // Enforces a 21:9 aspect ratio on all assets
-  //     padding-top: percentage(9 / 21);
-  //   }
-
-  //   @media only screen and (min-width: map-get($breakpoints, 'md')) {
-  //     background-image: url('/images/code.svg');
-  //     background-repeat: no-repeat;
-  //     background-position: left center;
-  //     // background-size: $spacer * 16;
-  //     background-size: contain;
-  //     text-align: left;
-  //   }
-  // }
+  .illustration {
+    margin-left: -$spacer * 8;
+  }
 
   .row {
     align-items: center;
@@ -179,9 +164,6 @@ export default {
       position: absolute;
       left: -$spacer * 9;
       top: $spacer;
-      // float: left;
-      // margin: 0;
-      // margin-left: auto;
     }
   }
 
