@@ -1,0 +1,24 @@
+@mixin header-base {
+  font-size: $font-size * 1.25;
+  font-weight: $font-weight-heading;
+  margin-top: $spacer * 2;
+  margin-bottom: $spacer;
+}
+
+h1 {
+  @include header-base;
+  font-size: $font-size * 2;
+  border-bottom: 1px solid $color-light;
+}
+h2 {
+  @include header-base;
+  font-size: $font-size * 1.75;
+  border-bottom: 1px solid $color-light;
+}
+h3 {
+  @include header-base;
+  font-size: $font-size * 1.5;
+}
+h4, h5, h6 {
+  @include header-base;
+}

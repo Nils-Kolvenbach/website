@@ -1,0 +1,42 @@
+.container, .container-fluid {
+  padding: 0 $container-padding-x;
+  margin: 0 auto;
+
+  @each $name, $breakpoint in $breakpoints {
+    @media only screen and (min-width: $breakpoint) {
+      width: map-get($container-max-width, $name);
+    }
+  }
+}
+
+.container-fluid {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: -$container-padding-x;
+  margin-right: -$container-padding-x;
+}
+
+@each $name, $breakpoint in $breakpoints {
+  @media only screen and (min-width: $breakpoint) {
+    .col-#{$name}-content {
+      @include col-base;
+    }
+    .col-#{$name}-remaining {
+      @include col-base;
+      flex: 1 1 auto;
+    }
+    @for $i from 1 through $grid-columns {
+      .col-#{$name}-#{$i} {
+        @include col-base;
+        flex: 0 0 percentage($i / $grid-columns);
+        max-width: percentage($i / $grid-columns);
+      }
+    }
+  }
+}
