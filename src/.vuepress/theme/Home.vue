@@ -3,12 +3,11 @@
     <section id="intro">
       <div class="container">
         <div class="row">
-          <div class="col-xs-12 col-lg-6 col-xl-5 show-lg">
-            <nk-game-of-life :rows="10" :columns="10"></nk-game-of-life>
+          <div class="col-xs-12 col-md-3 col-lg-5 col-xl-6 background">
+            <nk-asset class="show-lg" title="Nils Kolvenbach" :src="$withBase('/images/code.svg')" type="image"></nk-asset>
           </div>
-          <div class="col-xs-12 col-xl-2 show-xl"></div>
-          <div class="col-xs-12 col-lg-6 col-xl-5">
-            <nk-asset title="Nils Kolvenbach" src="https://www.gravatar.com/avatar/fab7aa30c10fc4d7f2be8d8bd7ec4c2f?s=96" type="avatar"></nk-asset>
+          <div class="col-xs-12 col-md-9 col-lg-7 col-xl-6">
+            <nk-asset title="Nils Kolvenbach" src="https://www.gravatar.com/avatar/fab7aa30c10fc4d7f2be8d8bd7ec4c2f?s=192" type="avatar"></nk-asset>
             <h1>Hi I am Nils Kolvenbach, <br>a Web Developer and Consultant working in Hamburg</h1>
             <p>Want to tell me about your project or company, maybe even make me an offer I can't refuse? Here we go!</p>
             <p class="cta">
@@ -45,6 +44,19 @@
           </div>
         </div>
       </nk-card>
+    </section>
+    <section id="maintainer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <h2>Version Control</h2>
+            <p>With a focus on JavaScript</p>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <nk-asset title="Version Control" type="image" :src="$withBase('/images/version-control.svg')"></nk-asset>
+          </div>
+        </div>
+      </div>
     </section>
     <!-- <section id="tech" class="container">
       <div class="row">
@@ -124,9 +136,6 @@ export default {
 <style lang="scss" scoped>
 @import '../scss/_variables.scss';
 @import '../scss/_mixins.scss';
-#home {
-  background-color: $color-primary;
-}
 #intro {
   background-color: $color-primary;
   color: $color-foreground;
@@ -134,10 +143,46 @@ export default {
   padding-bottom: $spacer * 12;
   text-align: center;
 
+  @media only screen and (min-width: map-get($breakpoints, 'md')) {
+    text-align: left;
+  }
+
+  // .background {
+
+  //   &:before {
+  //     display: block;
+  //     content: "";
+  //     // Enforces a 21:9 aspect ratio on all assets
+  //     padding-top: percentage(9 / 21);
+  //   }
+
+  //   @media only screen and (min-width: map-get($breakpoints, 'md')) {
+  //     background-image: url('/images/code.svg');
+  //     background-repeat: no-repeat;
+  //     background-position: left center;
+  //     // background-size: $spacer * 16;
+  //     background-size: contain;
+  //     text-align: left;
+  //   }
+  // }
+
+  .row {
+    align-items: center;
+  }
 
   .avatar {
-    width: $spacer * 6;
+    width: $spacer * 8;
+    height: $spacer * 8;
     margin: 0 auto;
+
+    @media only screen and (min-width: map-get($breakpoints, 'md')) {
+      position: absolute;
+      left: -$spacer * 9;
+      top: $spacer;
+      // float: left;
+      // margin: 0;
+      // margin-left: auto;
+    }
   }
 
   h1 {
@@ -187,5 +232,9 @@ export default {
       margin-left: $spacer / 2;
     }
   }
+}
+
+#maintainer {
+  padding: $spacer * 6 0;
 }
 </style>
