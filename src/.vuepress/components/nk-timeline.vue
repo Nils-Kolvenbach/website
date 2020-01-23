@@ -66,8 +66,12 @@ export default {
     padding: $spacer * 2 0;
 
     > div {
-      flex-basis: 800px;
-      padding: 0 $spacer * 4;
+      padding-left: $spacer * 4;
+
+      @media only screen and (min-width: map-get($breakpoints, 'lg')) {
+        flex-basis: 800px;
+        padding: 0 $spacer * 4;
+      }
 
       .card {
         margin: 0;
@@ -84,7 +88,7 @@ export default {
     &:before {
       position: absolute;
       top: $spacer * 5.5;
-      left: 0;
+      left: $spacer * 1.5;
       content: "";
       width: $spacer;
       height: $spacer;
