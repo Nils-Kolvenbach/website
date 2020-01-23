@@ -6,6 +6,9 @@ lang: de
 Living in germany I am required by law to include an "Impressum" which is essentially a legal notice and a privacy policy (Datenschutzerklärung). As a normal visitor this is probably not of interest to you.
 :::
 
+## Illustrations
+The illustrations used are taken from [unDraw](https://undraw.co/) which are created by [Katerina Limpitsouni](https://twitter.com/ninalimpi) and have an [open-source license](https://undraw.co/license).
+
 ## Icons
 The icons used are taken from the [Font Awesome](https://fontawesome.com/) library and licensed under the [Creative Commons Attribution 4.0 International license](https://fontawesome.com/license). I have not modified the icons except that I gave them a color.
 
