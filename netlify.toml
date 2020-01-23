@@ -21,6 +21,11 @@
   to = "https://nils-kolvenbach.dev/:splat"
   status = 301
   force = true
+[[redirects]]
+  from = "https://www.nils-kolvenbach.de/*"
+  to = "https://nils-kolvenbach.dev/:splat"
+  status = 301
+  force = true
 
 # Redirect default Netlify subdomain to primary domain
 [[redirects]]
