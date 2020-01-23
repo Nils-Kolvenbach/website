@@ -24,7 +24,7 @@
 
 # Redirect default Netlify subdomain to primary domain
 [[redirects]]
-  from = "https://optimistic-kalam-f68ddc.netlify.com/*"
+  from = "https://nils-kolvenbach.netlify.com/*"
   to = "https://nils-kolvenbach.dev/:splat"
   status = 301
   force = true
