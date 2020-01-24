@@ -48,9 +48,9 @@
     <section id="developer">
       <div class="container">
         <div class="row">
-          <div class="col-xs-12 col-md-6">
-            <h2>Building your project from Backend to Frontend</h2>
-            <p>Full Stack Developer with a focus on JavaScript</p>
+          <div class="col-xs-12 col-md-4">
+            <h2>Full Stack: <br>Developing your project from Backend to Frontend</h2>
+            <p>With a focus on JavaScript I am able to create Websites with Vue.js, API's and Backends with Node.js and Desktop clients with Electron.</p>
             <div class="row">
               <div class="col-xs-12 col-md-3" v-for="(tech) in developmentStack" :key="tech.name">
                 <div class="technology">
@@ -60,8 +60,8 @@
               </div>
             </div>
           </div>
-          <div class="col-xs-12 col-md-6">
-            <nk-asset title="Person sitting in front of multiple monitors" type="image" :src="$withBase('/images/full-stack.svg')"></nk-asset>
+          <div class="col-xs-12 col-md-8">
+            <nk-asset title="Person sitting in front of a computer and tablet" type="image" :src="$withBase('/images/full-stack.svg')"></nk-asset>
           </div>
         </div>
       </div>
@@ -69,12 +69,12 @@
     <section id="devops">
       <div class="container">
         <div class="row">
-          <div class="col-xs-12 col-md-6">
+          <div class="col-xs-12 col-md-8">
             <nk-asset title="Person sitting in front of multiple monitors" type="image" :src="$withBase('/images/devops.svg')"></nk-asset>
           </div>
-          <div class="col-xs-12 col-md-6">
-            <h2>Automating workflows to save your time and money</h2>
-            <p>DevOps specialist</p>
+          <div class="col-xs-12 col-md-4">
+            <h2>DevOps: <br>Automating workflows to save you time and money</h2>
+            <p>I use CI/CD pipelines to automate processes from linting and testing to deploying your infrastructure.</p>
             <div class="row">
               <div class="col-xs-12 col-md-3" v-for="(tech) in toolStack" :key="tech.name">
                 <div class="technology">
@@ -90,11 +90,11 @@
     <section id="consultant">
       <div class="container">
         <div class="row">
-          <div class="col-xs-12 col-md-6">
-            <h2>Guiding projects into the right direction</h2>
-            <p>Consultant</p>
+          <div class="col-xs-12 col-md-4">
+            <h2>Consulting: <br>Helping your project to succeed</h2>
+            <p>Sometimes creating great applications is the easy part. I attended training for project management and was able to prove my ability to do so.</p>
           </div>
-          <div class="col-xs-12 col-md-6">
+          <div class="col-xs-12 col-md-8">
             <nk-asset title="Person consulting and analyzing" type="image" :src="$withBase('/images/consulting.svg')"></nk-asset>
           </div>
         </div>
@@ -147,12 +147,24 @@ export default {
   },
 
   computed: {
+    /**
+     * Calculates the minutes passed since I started working professionally (not during my "Ausbildung")
+     */
     minutesFromStart() {
       return (Math.abs(new Date('2016-07-01') - new Date()) / 1000) / 60;
     },
+    /**
+     * Calculates the years passed since my "Ausbildung"
+     */
     yearsFromStart() {
+      // A year has 525600 minutes
       return this.minutesFromStart / 525600;
     },
+    /**
+     * Calculates the days worked since my "Ausbildung"
+     * 
+     * Takes holidays and weekends into account.
+     */
     daysExperience() {
       // 365 days minus 104 saturdays and sundays minus 10 public holidays minus 25 holidays
       return this.yearsFromStart * 226;
@@ -245,12 +257,15 @@ export default {
 }
 
 .technology {
-  padding: $spacer * 2;
   text-align: center;
   color: $color-primary;
 }
 
 #developer, #devops, #consultant {
-  margin: $spacer * 6 0;
+  margin: $spacer * 10 0;
+
+  .row {
+    align-items: center;
+  }
 }
 </style>
