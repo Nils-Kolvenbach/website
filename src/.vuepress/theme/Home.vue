@@ -49,12 +49,12 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-md-6">
-            <h2>Full Stack Developer</h2>
-            <p>With a focus on JavaScript</p>
+            <h2>Building your project from Backend to Frontend</h2>
+            <p>Full Stack Developer with a focus on JavaScript</p>
             <div class="row">
               <div class="col-xs-12 col-md-3" v-for="(tech) in developmentStack" :key="tech.name">
                 <div class="technology">
-                  <nk-asset :title="tech.name" type="image" :src="$withBase(tech.image)"></nk-asset>
+                  <nk-asset :title="tech.name + ' logo'" type="image" :src="$withBase(tech.image)"></nk-asset>
                   <p>{{ tech.name }}</p>
                 </div>
               </div>
@@ -73,16 +73,29 @@
             <nk-asset title="Person sitting in front of multiple monitors" type="image" :src="$withBase('/images/devops.svg')"></nk-asset>
           </div>
           <div class="col-xs-12 col-md-6">
-            <h2>DevOps specialist</h2>
-            <p>With a focus on JavaScript</p>
+            <h2>Automating workflows to save your time and money</h2>
+            <p>DevOps specialist</p>
             <div class="row">
               <div class="col-xs-12 col-md-3" v-for="(tech) in toolStack" :key="tech.name">
                 <div class="technology">
-                  <nk-asset :title="tech.name" type="image" :src="$withBase(tech.image)"></nk-asset>
+                  <nk-asset :title="tech.name + ' logo'" type="image" :src="$withBase(tech.image)"></nk-asset>
                   <p>{{ tech.name }}</p>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="consultant">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <h2>Guiding projects into the right direction</h2>
+            <p>Consultant</p>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <nk-asset title="Person consulting and analyzing" type="image" :src="$withBase('/images/consulting.svg')"></nk-asset>
           </div>
         </div>
       </div>
@@ -237,7 +250,7 @@ export default {
   color: $color-primary;
 }
 
-#developer, #devops {
-  padding: $spacer * 6 0;
+#developer, #devops, #consultant {
+  margin: $spacer * 6 0;
 }
 </style>
