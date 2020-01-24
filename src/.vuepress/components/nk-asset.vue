@@ -60,7 +60,6 @@ export default {
 @import '../scss/_mixins.scss';
 .asset-container {
   position: relative;
-  background-color: $color-secondary;
 
   &:before {
     display: block;
@@ -80,7 +79,7 @@ export default {
     > img {
       border-radius: 50%;
       background-color: $color-light;
-      border: 2px solid $color-light;
+      box-shadow: $box-shadow;
     }
   }
 
