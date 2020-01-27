@@ -36,7 +36,7 @@ export default {
   // The line between
   &:before {
     position: absolute;
-    left: $spacer;
+    left: $spacer / 2;
     content: "";
     height: 100%;
     border-right: 2px solid $color-primary;
@@ -66,7 +66,7 @@ export default {
     padding: $spacer * 2 0;
 
     > div {
-      padding-left: $spacer * 4;
+      padding-left: $spacer * 3;
 
       @media only screen and (min-width: map-get($breakpoints, 'lg')) {
         flex-basis: 800px;
@@ -88,7 +88,7 @@ export default {
     &:before {
       position: absolute;
       top: $spacer * 5.5;
-      left: $spacer * 1.5;
+      left: $spacer;
       content: "";
       width: $spacer;
       height: $spacer;
