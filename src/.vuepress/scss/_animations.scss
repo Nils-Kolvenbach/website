@@ -1,0 +1,26 @@
+@keyframes slide-in-right {
+  from {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slide-right-enter-active {
+  animation: slide-in-right .2s;
+}
+
+.slide-right-leave-active {
+  animation: slide-in-right .2s reverse;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.2s ease-in-out;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
