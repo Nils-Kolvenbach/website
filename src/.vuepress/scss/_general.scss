@@ -73,11 +73,3 @@ img {
   max-width: 100%;
   height: auto;
 }
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.2s ease-in-out;
-}
-
-.fade-enter, .fade-leave-to {
-  opacity: 0;
-}

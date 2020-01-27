@@ -1,25 +1,39 @@
 <template>
   <div id="app-container">
     <header id="app-header">
-      <nav class="container">
+      <nav class="container" aria-label="The desktop main menu">
         <a href="/">
           <img src="/logo.svg" alt="Logo - Nils Kolvenbach">
           <span class="show-md">Nils Kolvenbach</span>
         </a>
+        <ul class="show-md">
+          <li><a href="/" :class="{ active: isHomePage($page) }">Home</a></li>
+          <li><a href="/curriculum-vitae/" :class="{ active: isCv($page) }">Curriculum Vitae</a></li>
+          <!-- <li><a href="/tutorials/" :class="{ active: isTutorialIndex($page) || isTutorialDetail($page) || isLesson($page) }">Tutorials</a></li>
+          <li><a href="/blog/" :class="{ active: isBlogIndex($page) || isBlogDetail($page) }">Blog</a></li> -->
+        </ul>
+        <button id="button-open-mobile-drawer" class="hide-md" @click="showDrawer = true" aria-label="Toggle for the mobile main menu drawer" aria-controls="mobile-drawer" :aria-expanded="showDrawer === true">
+          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" class="svg-inline--fa fa-bars fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg>
+        </button>
+      </nav>
+      <div class="container">
+        <nk-breadcrumb v-if="urlDepth($page.path) > 1"></nk-breadcrumb>
+      </div>
+    </header>
+    <transition name="fade">
+      <div id="mobile-drawer-backdrop" v-show="showDrawer" @click="showDrawer = false"></div>
+    </transition>
+    <transition name="slide-right">
+      <nav id="mobile-drawer" v-show="showDrawer" aria-label="The mobile main menu drawer">
+        <label>Menu</label>
         <ul>
           <li><a href="/" :class="{ active: isHomePage($page) }">Home</a></li>
           <li><a href="/curriculum-vitae/" :class="{ active: isCv($page) }">Curriculum Vitae</a></li>
           <!-- <li><a href="/tutorials/" :class="{ active: isTutorialIndex($page) || isTutorialDetail($page) || isLesson($page) }">Tutorials</a></li>
           <li><a href="/blog/" :class="{ active: isBlogIndex($page) || isBlogDetail($page) }">Blog</a></li> -->
         </ul>
-        <!-- <button id="menu-toggle" class="hide-md">
-          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" class="svg-inline--fa fa-bars fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg>
-        </button> -->
       </nav>
-      <div class="container">
-        <nk-breadcrumb v-if="getUrlDepth($page.path) > 1"></nk-breadcrumb>
-      </div>
-    </header>
+    </transition>
     <main>
       <Home v-if="isHomePage($page)"></Home>
       <CurriculumVitae v-else-if="isCv($page)"></CurriculumVitae>
@@ -58,7 +72,9 @@ export default {
   components: { Home, CurriculumVitae, Page, BlogIndex, TutorialIndex, TutorialDetail },
 
   data() {
-    return {}
+    return {
+      showDrawer: false
+    }
   },
 
   computed: {
@@ -101,13 +117,13 @@ export default {
       if (page.path.startsWith('/tutorials/') === false || this.isTutorialIndex(page) === true) {
         return false;
       }
-      return this.getUrlDepth(page.path) === 2;
+      return this.urlDepth(page.path) === 2;
     },
     isLesson(page) {
       if (page.path.startsWith('/tutorials/') === false || this.isTutorialDetail(page) === true) {
         return false;
       }
-      return this.getUrlDepth(page.path) === 3;
+      return this.urlDepth(page.path) === 3;
     },
     isCv(page) {
       if (page.path === '/curriculum-vitae/') {
@@ -115,7 +131,7 @@ export default {
       }
       return false;
     },
-    getUrlDepth(url) {
+    urlDepth(url) {
       // Remove beginning slash if existing
       if (url.charAt(0) === '/') {
         url = url.slice(1);
@@ -201,12 +217,59 @@ export default {
       }
     }
 
-    #menu-toggle {
+    #button-open-mobile-drawer {
       margin-left: auto;
 
       svg {
         width: $spacer * 1.5;
         height: $spacer * 1.5;
+      }
+    }
+  }
+}
+
+#mobile-drawer-backdrop {
+  position: absolute;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba($color-primary, .8);
+}
+
+#mobile-drawer {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: $spacer * 15;
+  box-shadow: $box-shadow;
+  background-color: $color-foreground;
+
+  label {
+    padding: $spacer / 2 $spacer;
+    border-bottom: 1px solid $color-light;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      a {
+        display: block;
+        padding: $spacer / 2 $spacer;
+        color: $color-text;
+        border-left: 2px solid transparent;
+
+        &.active, &:hover {
+          color: $color-text;
+          background-color: $color-secondary;
+          border-color: $color-primary;
+          text-decoration: none;
+        }
       }
     }
   }
