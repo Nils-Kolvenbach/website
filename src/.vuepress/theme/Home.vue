@@ -48,11 +48,11 @@
     <section id="developer">
       <div class="container">
         <div class="row">
-          <div class="col-xs-12 col-md-4">
+          <div class="col-xs-12 col-md-6 col-lg-4">
             <h2>Full Stack: <br>Developing your project from Backend to Frontend</h2>
             <p>With a focus on JavaScript I am able to create Websites with Vue.js, API's and Backends with Node.js and Desktop clients with Electron.</p>
             <div class="row">
-              <div class="col-xs-12 col-md-3" v-for="(tech) in developmentStack" :key="tech.name">
+              <div class="col-xs-6 col-md-3" v-for="(tech) in developmentStack" :key="tech.name">
                 <div class="technology">
                   <nk-asset :title="tech.name + ' logo'" type="image" :src="$withBase(tech.image)"></nk-asset>
                   <p>{{ tech.name }}</p>
@@ -60,7 +60,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xs-12 col-md-8">
+          <div class="col-xs-12 col-md-6 col-lg-8">
             <nk-asset title="Person sitting in front of a computer and tablet" type="image" :src="$withBase('/images/full-stack.svg')"></nk-asset>
           </div>
         </div>
@@ -69,14 +69,14 @@
     <section id="devops">
       <div class="container">
         <div class="row">
-          <div class="col-xs-12 col-md-8">
+          <div class="col-xs-12 col-md-6 col-lg-8">
             <nk-asset title="Person sitting in front of multiple monitors" type="image" :src="$withBase('/images/devops.svg')"></nk-asset>
           </div>
-          <div class="col-xs-12 col-md-4">
+          <div class="col-xs-12 col-md-6 col-lg-4">
             <h2>DevOps: <br>Automating workflows to save you time and money</h2>
             <p>I use CI/CD pipelines to automate processes from linting and testing to deploying your infrastructure.</p>
             <div class="row">
-              <div class="col-xs-12 col-md-3" v-for="(tech) in toolStack" :key="tech.name">
+              <div class="col-xs-6 col-md-3" v-for="(tech) in toolStack" :key="tech.name">
                 <div class="technology">
                   <nk-asset :title="tech.name + ' logo'" type="image" :src="$withBase(tech.image)"></nk-asset>
                   <p>{{ tech.name }}</p>
@@ -90,11 +90,11 @@
     <section id="consultant">
       <div class="container">
         <div class="row">
-          <div class="col-xs-12 col-md-4">
+          <div class="col-xs-12 col-md-6 col-lg-4">
             <h2>Consulting: <br>Helping your project to succeed</h2>
             <p>Sometimes creating great applications is the easy part. I attended training for project management and was able to prove my ability to do so.</p>
           </div>
-          <div class="col-xs-12 col-md-8">
+          <div class="col-xs-12 col-md-6 col-lg-8">
             <nk-asset title="Person consulting and analyzing" type="image" :src="$withBase('/images/consulting.svg')"></nk-asset>
           </div>
         </div>
@@ -179,12 +179,14 @@ export default {
 #intro {
   background-color: $color-primary;
   color: $color-foreground;
-  padding-top: $spacer * 8;
-  padding-bottom: $spacer * 12;
+  padding-top: $spacer * 2;
+  padding-bottom: $spacer * 6;
   text-align: center;
 
   @media only screen and (min-width: map-get($breakpoints, 'md')) {
     text-align: left;
+    padding-top: $spacer * 8;
+    padding-bottom: $spacer * 12;
   }
 
   .illustration {
@@ -199,6 +201,7 @@ export default {
     width: $spacer * 8;
     height: $spacer * 8;
     margin: 0 auto;
+    margin-bottom: $spacer;
 
     @media only screen and (min-width: map-get($breakpoints, 'md')) {
       position: absolute;
@@ -213,9 +216,23 @@ export default {
     border: none;
   }
 
-  .cta > a:first-of-type {
-    margin-right: $spacer;
-    border-radius: $border-radius;
+  .cta {
+    a {
+      display: block;
+      margin: $spacer 0;
+
+      @media only screen and (min-width: map-get($breakpoints, 'md')) {
+        display: inline-flex;
+      }
+
+      &:first-of-type {
+        border-radius: $border-radius;
+
+        @media only screen and (min-width: map-get($breakpoints, 'md')) {
+          margin-right: $spacer;
+        }
+      }
+    }
   }
 }
 
@@ -266,6 +283,23 @@ export default {
 
   .row {
     align-items: center;
+  }
+}
+
+#developer, #consultant {
+  > .container > .row :first-child {
+    order: 2;
+
+    @media only screen and (min-width: map-get($breakpoints, 'md')) {
+      order: 1;
+    }
+  }
+  > .container > .row :last-child {
+    order: 1;
+
+    @media only screen and (min-width: map-get($breakpoints, 'md')) {
+      order: 2;
+    }
   }
 }
 </style>
