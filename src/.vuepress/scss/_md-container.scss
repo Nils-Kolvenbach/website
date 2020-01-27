@@ -6,8 +6,19 @@
 .danger-container {
   display: block;
   margin: $spacer 0;
-  // margin-left: -$spacer * 2;
-  // margin-right: -$spacer * 2;
+}
+
+// Container for Markdown pages
+.content__default {
+  .asset-container,
+  .code-container,
+  .table-container,
+  .note-container,
+  .warning-container,
+  .danger-container {
+    margin-left: -$spacer * 2;
+    margin-right: -$spacer * 2;
+  }
 }
 
 .table-container {
