@@ -25,9 +25,7 @@
     </transition>
     <transition name="slide-right">
       <nav id="mobile-drawer" v-show="showDrawer" aria-label="The mobile main menu drawer">
-        <button id="button-close-mobile-drawer" @click="showDrawer = false" aria-label="Toggle for the mobile main menu drawer" aria-controls="mobile-drawer" :aria-expanded="showDrawer === true">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <label>Menu</label>
         <ul>
           <li><a href="/" :class="{ active: isHomePage($page) }">Home</a></li>
           <li><a href="/curriculum-vitae/" :class="{ active: isCv($page) }">Curriculum Vitae</a></li>
@@ -250,9 +248,30 @@ export default {
   box-shadow: $box-shadow;
   background-color: $color-foreground;
 
-  #button-close-mobile-drawer {
-    font-size: $font-size-big;
-    margin-left: auto;
+  label {
+    padding: $spacer / 2 $spacer;
+    border-bottom: 1px solid $color-light;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      a {
+        display: block;
+        padding: $spacer / 2 $spacer;
+        color: $color-text;
+        border-left: 2px solid transparent;
+
+        &.active, &:hover {
+          color: $color-text;
+          background-color: $color-secondary;
+          border-color: $color-primary;
+          text-decoration: none;
+        }
+      }
+    }
   }
 }
 
