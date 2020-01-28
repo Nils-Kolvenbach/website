@@ -1,3 +1,4 @@
 ---
-title: Curriculum Vitae
+title: "Curriculum Vitae"
+description: ""
 ---
