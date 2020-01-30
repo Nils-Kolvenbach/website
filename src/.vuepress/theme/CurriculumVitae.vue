@@ -25,8 +25,8 @@ export default {
           location: 'Hamburg',
           chips: ['Vue.js', 'DevOps', 'CI/CD', 'Git', 'PHP', 'Project Management', 'Scrum', 'WordPress'],
           content: [
-            'Back in Hamburg I wanted to work in a bigger company again. Having experience in consulting and development I found a fitting job in an international team. Currently I am mainly working on our in-house Mobile Device Management software where I implemented a new frontend with Vue.js and took over tasks of the maintainer of several project parts. I also introduced GitLab with it\'s CI/CD to them and helped the transition from SVN to Git.',
-            'Since I am still a consultant and not an engineer I am also working directly with customers. Our core sectors are telekommunication, automotive, energy and transport, travel and logistics. We accompany our customers in the digital transformation process by helping to expand their business model and providing custom solutions for their individual needs.'
+            'Back in Hamburg I wanted to work in a larger company again. With my experience in consulting and development I found a suitable position in an international team. Currently I am mainly working on our proprietary Mobile Device Management software, where I implemented a new frontend with Vue.js and took over tasks of the maintainer of various project parts. I also introduced them to GitLab with its CI/CD and helped with the transition from SVN to Git.',
+            'Since I am still a consultant and not an engineer, I also work directly with customers. Our core areas are telecommunications, the automotive industry, energy and transport, travel and logistics. We accompany our clients in the digital transformation process by helping them to expand their business model and offer tailor-made solutions for their individual needs.'
           ]
         },
         {
@@ -37,8 +37,8 @@ export default {
           location: 'Cuxhaven',
           chips: ['Project Management', 'Webdesign', 'WordPress', 'Node.js', 'Electron'],
           content: [
-            'I was in need of getting back into my hometown for personal reasons. As jobs in IT are very sparse there I made the decision to risk something. It was not an easy time for me financially but in the end I came out round about with what I started but so much experience gained.',
-            'I worked for SMB\'s creating mainly websites and small in-house projects. Having the ability to work on my own made it possible using the tech stack I wanted to try out. This way I came in touch with Electron giving me the ability to use web technologies I already knew to create desktop applications.'
+            'I had to return to my home town for personal reasons. Since jobs in the IT industry are very scarce there, I made the decision to risk something. It wasn\'t an easy time for me financially, but in the end it all worked out and I gained so much experience.',
+            'I worked for SMB\'s mainly creating websites and small internal projects. Since I had the opportunity to work independently, I was able to use the tech stack I wanted to try out. This is how I got in touch with Electron, which gave me the opportunity to use web technologies I already knew to create desktop applications.'
           ]
         },
         {
@@ -50,8 +50,8 @@ export default {
           location: 'Hamburg',
           chips: ['SEO', 'SEA'],
           content: [
-            'While doing my "Ausbildung" and creating first websites for customers I was getting in touch with various optimization techniques. Wanting to deepen this knowledge I applied for a SEO trainee program.',
-            'Getting a borader view of marketing and later specializing in technical SEO as well as getting experience consulting customers was very beneficial for my later work.'
+            'During my "Ausbildung" and the creation of first websites for customers I came into contact with various techniques like on-page, off-page and performance optimization. To deepen this knowledge, I applied for an SEO trainee program.',
+            'Getting a broader view on marketing and later specializing in technical SEO as well as gaining experience in consulting clients was very beneficial for my later work.'
           ]
         },
         {
@@ -63,8 +63,8 @@ export default {
           location: 'Stade',
           chips: ['PHP', 'WordPress', 'Joomla'],
           content: [
-            'I started my development carreer directly after school. In germany it is typical to either go to university or do three years of so called "Ausbildung". Doing so I was working half of the time in a company getting practical training and the other half going to a specialized school for theory.',
-            'The company I worked in specialized in web development. We mainly focused on custom Joomla and WordPress themes but also created a SAAS application for real estate agents. It allowed them to not only manage their properties and publish those to many big listing websites but also to build a website around it.'
+            'I started my development career right after school. In Germany it is typical to either study or complete a three-year apprenticeship called "Ausbildung" which is what I did. Half of the time I worked in a company to get practical training and the other half I went to a technical college for theory.',
+            'The company I worked for specialized in web development. We mainly focused on custom Joomla and WordPress themes, but also created a SAAS application for real estate agents. It not only allowed them to manage their properties and publish them on many major listing websites, but also to create a custom website around them.'
           ]
         }
       ]
