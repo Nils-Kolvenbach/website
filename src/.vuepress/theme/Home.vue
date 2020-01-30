@@ -279,7 +279,8 @@ export default {
 }
 
 #developer, #devops, #consultant {
-  margin: $spacer * 10 0;
+  margin: $spacer * 5 0;
+  padding: $spacer * 5 0;
 
   .row {
     align-items: center;

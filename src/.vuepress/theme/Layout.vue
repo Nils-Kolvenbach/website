@@ -48,6 +48,33 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-md-4">
+            <h6>Find me on</h6>
+            <div class="row also-on">
+              <div class="col-xs-4">
+                <a href="https://github.com/Nils-Kolvenbach" target="_blank" rel="noopener noreferrer">
+                  <nk-asset title="GitHub logo" type="image" :src="$withBase('/icons/github.svg')"></nk-asset>
+                  <p>GitHub</p>
+                </a>
+              </div>
+              <div class="col-xs-4">
+                <a href="https://www.xing.com/profile/Nils_Kolvenbach" target="_blank" rel="noopener noreferrer">
+                  <nk-asset title="XING logo" type="image" :src="$withBase('/icons/xing.svg')"></nk-asset>
+                  <p>XING</p>
+                </a>
+              </div>
+              <div class="col-xs-4">
+                <a href="https://www.linkedin.com/in/nils-kolvenbach/" target="_blank" rel="noopener noreferrer">
+                  <nk-asset title="LinkedIn logo" type="image" :src="$withBase('/icons/linkedin.svg')"></nk-asset>
+                  <p>LinkedIn</p>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-4">
+            <h6>Special thanks</h6>
+            <p>To Katerina Limpitsouni from unDraw for the awesome open-source illustrations and Font Awesome for their Free icons.</p>
+          </div>
+          <div class="col-xs-12 col-md-4">
             <h6>Legal</h6>
             <ul>
               <li><a href="/legal-notice/">Legal notice (Impressum)</a></li>
@@ -277,8 +304,33 @@ export default {
 
 #app-footer {
   background-color: $color-primary;
-  color: $color-foreground;
+  color: $color-light;
   padding: $spacer * 2 0;
+
+  h6 {
+    color: $color-foreground;
+  }
+
+  .also-on {
+    a {
+      display: block;
+      color: $color-light;
+      text-align: center;
+
+      img {
+        filter: invert(1);
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+
+      &:hover {
+        text-decoration: none;
+        color: $color-foreground;
+      }
+    }
+  }
 
   ul {
     padding: 0;
