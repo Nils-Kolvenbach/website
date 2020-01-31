@@ -1,5 +1,5 @@
 <template>
-  <component :is="element" :class="{'asset-container': true, 'avatar': type === 'avatar'}" :href="link">
+  <component :is="element" :class="{'asset-container': true, 'avatar': type === 'avatar', square}" :href="link">
     <img v-if="type === 'image' || type === 'avatar'" :alt="title" :src="src" loading="lazy">
     <iframe v-else-if="type === 'youtube'" :title="title" :src="`https://www.youtube-nocookie.com/embed/${src}`" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <div v-if="hasOverlay" :class="`overlay overlay-${overlay}`">
@@ -28,6 +28,10 @@ export default {
     href: {
       type: String,
       default: ''
+    },
+    square: {
+      type: Boolean,
+      default: false
     },
     overlay: {
       type: String,
@@ -66,6 +70,11 @@ export default {
     content: "";
     // Enforces a 21:9 aspect ratio on all assets
     padding-top: percentage(9 / 21);
+  }
+
+  &.square:before {
+    // Enforces a 1:1 aspect ratio on all assets
+    padding-top: percentage(1);
   }
 
   &.avatar {

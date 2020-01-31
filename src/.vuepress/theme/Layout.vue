@@ -49,25 +49,16 @@
         <div class="row">
           <div class="col-xs-12 col-md-4">
             <h6>Find me on</h6>
-            <div class="row also-on">
-              <div class="col-xs-4">
-                <a href="https://github.com/Nils-Kolvenbach" target="_blank" rel="noopener noreferrer">
-                  <nk-asset title="GitHub logo" type="image" :src="$withBase('/icons/github.svg')"></nk-asset>
-                  <p>GitHub</p>
-                </a>
-              </div>
-              <div class="col-xs-4">
-                <a href="https://www.xing.com/profile/Nils_Kolvenbach" target="_blank" rel="noopener noreferrer">
-                  <nk-asset title="XING logo" type="image" :src="$withBase('/icons/xing.svg')"></nk-asset>
-                  <p>XING</p>
-                </a>
-              </div>
-              <div class="col-xs-4">
-                <a href="https://www.linkedin.com/in/nils-kolvenbach/" target="_blank" rel="noopener noreferrer">
-                  <nk-asset title="LinkedIn logo" type="image" :src="$withBase('/icons/linkedin.svg')"></nk-asset>
-                  <p>LinkedIn</p>
-                </a>
-              </div>
+            <div class="also-on">
+              <a href="https://github.com/Nils-Kolvenbach" target="_blank" rel="noopener noreferrer">
+                <nk-asset title="GitHub logo" :square="true" type="image" :src="$withBase('/icons/github.svg')"></nk-asset>
+              </a>
+              <a href="https://www.xing.com/profile/Nils_Kolvenbach" target="_blank" rel="noopener noreferrer">
+                <nk-asset title="XING logo" :square="true" type="image" :src="$withBase('/icons/xing.svg')"></nk-asset>
+              </a>
+              <a href="https://www.linkedin.com/in/nils-kolvenbach/" target="_blank" rel="noopener noreferrer">
+                <nk-asset title="LinkedIn logo" :square="true" type="image" :src="$withBase('/icons/linkedin.svg')"></nk-asset>
+              </a>
             </div>
           </div>
           <div class="col-xs-12 col-md-4">
@@ -312,13 +303,19 @@ export default {
   }
 
   .also-on {
+    display: flex;
+
     a {
-      display: block;
+      flex: 0 0 $spacer * 3;
       color: $color-light;
-      text-align: center;
+      margin-right: $spacer;
+
+      .asset-container {
+        margin-top: 0;
+      }
 
       img {
-        filter: invert(1);
+        filter: invert(.8);
       }
 
       p {
@@ -328,6 +325,10 @@ export default {
       &:hover {
         text-decoration: none;
         color: $color-foreground;
+
+        img {
+          filter: invert(1);
+        }
       }
     }
   }
