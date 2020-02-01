@@ -9,8 +9,9 @@
         <ul class="show-md">
           <li><a href="/" :class="{ active: isHomePage($page) }">Home</a></li>
           <li><a href="/curriculum-vitae/" :class="{ active: isCv($page) }">Curriculum Vitae</a></li>
-          <!-- <li><a href="/tutorials/" :class="{ active: isTutorialIndex($page) || isTutorialDetail($page) || isLesson($page) }">Tutorials</a></li>
-          <li><a href="/blog/" :class="{ active: isBlogIndex($page) || isBlogDetail($page) }">Blog</a></li> -->
+          <!-- <li><a href="/case-studies/website-relaunch-seven-principles-ag/" :class="{ active: isCv($page) }">Case Studies</a></li> -->
+          <!-- <li><a href="/tutorials/" :class="{ active: isTutorialIndex($page) || isTutorialDetail($page) || isLesson($page) }">Tutorials</a></li> -->
+          <!-- <li><a href="/blog/" :class="{ active: isBlogIndex($page) || isBlogDetail($page) }">Blog</a></li> -->
         </ul>
         <button id="button-open-mobile-drawer" class="hide-md" @click="showDrawer = true" aria-label="Toggle for the mobile main menu drawer" aria-controls="mobile-drawer" :aria-expanded="showDrawer === true">
           <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" class="svg-inline--fa fa-bars fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg>
@@ -306,7 +307,7 @@ export default {
     display: flex;
 
     a {
-      flex: 0 0 $spacer * 3;
+      flex: 0 0 $spacer * 2;
       color: $color-light;
       margin-right: $spacer;
 

@@ -1,5 +1,5 @@
 <template>
-  <div id="blog-post" class="container">
+  <div id="nk-article" class="container">
     <div class="row">
       <div class="col-xs-12 col-lg-1 col-xl-2 show-lg">
         <div id="share-scroller">
@@ -14,8 +14,6 @@
       <div class="col-xs-12 col-lg-10 col-xl-8">
         <nk-card element="article">
           <header>
-            <p id="category">{{ $page.frontmatter.category }}</p>
-            <h1>{{ $page.title }}</h1>
             <nk-asset :title="$page.title" :src="assetSrc" :type="assetType"></nk-asset>
             <div class="row metadata">
               <div class="col-xs-4 metadata-item">
@@ -41,10 +39,6 @@
               </div>
             </div>
           </header>
-          <div id="toc">
-            <h2>Table of contents</h2>
-            <TOC />
-          </div>
           <Content/>
         </nk-card>
       </div>
@@ -94,7 +88,7 @@ export default {
 <style lang="scss" scoped>
 @import '../scss/_variables.scss';
 
-#blog-post {
+#nk-article {
   margin-top: $spacer * 2;
 
   #share-scroller {
@@ -128,37 +122,12 @@ export default {
     }
   }
 
-  #toc {
-    h6 {
-      margin-top: 0;
-      margin-bottom: $spacer;
-      padding-left: $spacer * 2;
-    }
-
-    ::v-deep {
-      ul {
-        padding: 0;
-
-        li {
-          list-style-type: none;
-
-          a {
-            color: $color-text;
-
-            &.router-link-active {
-              color: $color-tertiary;
-            }
-          }
-
-          ul {
-
-          }
-        }
-      }
-    }
-  }
-
   article {
+    overflow: hidden;
+
+    /deep/ .content {
+      padding-top: 0;
+    }
 
     header {
       #category {
@@ -173,6 +142,7 @@ export default {
       }
 
       .asset-container {
+        margin-top: 0;
         margin-left: -$spacer * 2;
         margin-right: -$spacer * 2;
       }

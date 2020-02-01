@@ -28,7 +28,6 @@ module.exports = {
     lineNumbers: true
   },
   plugins: [
-    'vuepress-plugin-table-of-contents',
     'vuepress-plugin-smooth-scroll',
     'vuepress-plugin-reading-time',
     [
