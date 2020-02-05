@@ -1,27 +1,19 @@
 ---
 title: "Git"
-order: 1
 description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
 lang: en
 image: https://via.placeholder.com/1200x514
-youtube: qDreU1-4CYo
+video: qDreU1-4CYo
+category: Basics
+tags: [Git, Version Control System (VCS)]
 ---
 
-<!-- ::: code
-``` sh
-mkdir test && cd test
-git init
-touch test.txt
-cat test.txt
-```
-::: -->
-
-<!-- This will start a new Git repository inside the folder you are currently in. -->
+*[VCS]: Version Control System
 
 > Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
 
 ## What is Git?
-Git is a Version Control System or VCS. It makes it possible to jump back to any version of a file (hence the name) and helps developers to keep track of the big WH questions like:
+Git is a Version Control System (VCS). It makes it possible to jump back to any version of a file (hence the name) and helps developers to keep track of the big WH questions like:
 - What changed?
 - When did it change?
 - Who changed it?
@@ -36,12 +28,4 @@ Development will also most probably take you more then one day to complete. Do y
 
 And now think of a bigger project with multiple developers working together over a longer period. Where do you keep your files? How do you organise changes without overwriting each others work?
 
-Git and VCS in general is a solution of problems developers faced.
-
-## How do I install Git?
-The way you install Git depends on your Operating System. Visit [Git's downloads page](https://git-scm.com/downloads) and click on your OS's link to either download an executable (Windows & Mac OS X) or get instructions how to install it (Linux & Unix) via the package manager of your distribution.
-
-
-
-
-Start by creating a folder that will contain all files we are going to add. Inside this folder 
+Git and VCS in general is a solution of problems developers faced. 

@@ -49,7 +49,6 @@ article {
   
     h2 {
       margin: 0;
-      margin-bottom: $spacer * 2;
       border: none;
     }
   
@@ -57,10 +56,6 @@ article {
       margin-left: -$spacer * 2;
       margin-right: -$spacer * 2;
     }
-  }
-
-  .description {
-    margin-bottom: 0;
   }
 }
 </style>
