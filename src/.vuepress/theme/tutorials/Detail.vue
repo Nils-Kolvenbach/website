@@ -20,11 +20,13 @@
         </div>
       </div>
     </div>
-    <section id="content-container">
+    <section>
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-md-6">
-            <Content/>
+            <div id="content-container">
+              <Content/>
+            </div>
           </div>
           <div class="col-xs-12 col-md-6">
             <nk-card title="Lessons">
@@ -51,12 +53,9 @@
 
 #header {
   padding: $spacer * 2 0;
+  padding-bottom: $spacer * 4;
   background-color: $color-primary;
   color: $color-foreground;
-
-  > .container > .row {
-    align-items: center;
-  }
 
   .category {
     margin: 0;
@@ -72,13 +71,25 @@
   }
 }
 
-#content-container {
-  padding: $spacer * 2 0;
+section {
   background-color: $color-foreground;
+
+  #content-container {
+    padding: $spacer * 2 0;
+  }
+
+  > .container > .row {
+    flex-direction: column-reverse;
+
+    @media only screen and (min-width: map-get($breakpoints, 'md')) {
+      flex-direction: row;
+    }
+  }
 
   .card {
     position: sticky;
     top: $spacer * 2;
+    margin-top: -66px;
   }
 }
 
