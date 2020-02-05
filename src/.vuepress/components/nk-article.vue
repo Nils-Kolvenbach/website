@@ -93,14 +93,17 @@ export default {
 
   #share-scroller {
     display: flex;
+    height: fit-content;
     flex-direction: column;
-    align-items: flex-end;
+    width: 100%;
+    padding-bottom: $spacer;
     position: sticky;
     top: $spacer * 2;
 
     a {
       display: flex;
       padding: $spacer / 2;
+      margin-left: auto;
       margin-bottom: $spacer;
       border-radius: 50%;
       background-color: $color-foreground;
