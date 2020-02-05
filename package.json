@@ -11,6 +11,8 @@
   "devDependencies": {
     "@vuepress/plugin-active-header-links": "^1.2.0",
     "@vuepress/plugin-pwa": "^1.2.0",
+    "markdown-it-abbr": "^1.0.4",
+    "markdown-it-footnote": "^3.0.2",
     "moment": "^2.24.0",
     "node-sass": "^4.13.0",
     "sass-loader": "^8.0.0",
