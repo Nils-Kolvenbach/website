@@ -88,7 +88,7 @@ export default {
     &:before {
       position: absolute;
       top: $spacer * 5.5;
-      left: $spacer;
+      left: calc(#{$spacer} + 1px);
       content: "";
       width: $spacer;
       height: $spacer;
@@ -97,7 +97,7 @@ export default {
       background-color: $color-foreground;
 
       @media only screen and (min-width: map-get($breakpoints, 'lg')) {
-        left: -$spacer / 2;
+        left: calc(-#{$spacer} / 2 + 1px);
       }
     }
   }
@@ -107,8 +107,8 @@ export default {
       // The line to each dot
       &:before {
         position: absolute;
-        top: $spacer * 6;
-        right: $spacer / 2;
+        top: calc(#{$spacer} * 6 - 1px);
+        right: calc(#{$spacer} / 2 - 1px);
         content: "";
         width: $spacer * 4;
         border-bottom: 2px solid $color-primary;
@@ -124,7 +124,7 @@ export default {
 
       &:before {
         left: initial;
-        right: -$spacer / 2;
+        right: calc(-#{$spacer} / 2 - 1px);
       }
     }
 
