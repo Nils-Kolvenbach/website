@@ -27,8 +27,11 @@ module.exports = {
   markdown: {
     lineNumbers: true
   },
+  extendMarkdown: md => {
+    md.use(require('markdown-it-abbr'))
+    md.use(require('markdown-it-footnote'))
+  },
   plugins: [
-    'vuepress-plugin-table-of-contents',
     'vuepress-plugin-smooth-scroll',
     'vuepress-plugin-reading-time',
     [

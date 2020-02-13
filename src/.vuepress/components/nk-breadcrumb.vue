@@ -31,6 +31,8 @@ export default {
 <style lang="scss" scoped>
 @import '../scss/_variables.scss';
 .breadcrumb {
+  font-size: $font-size-small;
+
   ol {
     display: flex;
     flex-wrap: wrap;

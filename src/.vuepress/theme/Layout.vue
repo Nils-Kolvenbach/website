@@ -9,8 +9,8 @@
         <ul class="show-md">
           <li><a href="/" :class="{ active: isHomePage($page) }">Home</a></li>
           <li><a href="/curriculum-vitae/" :class="{ active: isCv($page) }">Curriculum Vitae</a></li>
-          <!-- <li><a href="/tutorials/" :class="{ active: isTutorialIndex($page) || isTutorialDetail($page) || isLesson($page) }">Tutorials</a></li>
-          <li><a href="/blog/" :class="{ active: isBlogIndex($page) || isBlogDetail($page) }">Blog</a></li> -->
+          <!-- <li><a href="/tutorials/" :class="{ active: isTutorialIndex($page) || isTutorialDetail($page) || isLesson($page) }">Tutorials</a></li> -->
+          <!-- <li><a href="/blog/" :class="{ active: isBlogIndex($page) || isBlogDetail($page) }">Blog</a></li> -->
         </ul>
         <button id="button-open-mobile-drawer" class="hide-md" @click="showDrawer = true" aria-label="Toggle for the mobile main menu drawer" aria-controls="mobile-drawer" :aria-expanded="showDrawer === true">
           <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" class="svg-inline--fa fa-bars fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg>
@@ -49,25 +49,16 @@
         <div class="row">
           <div class="col-xs-12 col-md-4">
             <h6>Find me on</h6>
-            <div class="row also-on">
-              <div class="col-xs-4">
-                <a href="https://github.com/Nils-Kolvenbach" target="_blank" rel="noopener noreferrer">
-                  <nk-asset title="GitHub logo" type="image" :src="$withBase('/icons/github.svg')"></nk-asset>
-                  <p>GitHub</p>
-                </a>
-              </div>
-              <div class="col-xs-4">
-                <a href="https://www.xing.com/profile/Nils_Kolvenbach" target="_blank" rel="noopener noreferrer">
-                  <nk-asset title="XING logo" type="image" :src="$withBase('/icons/xing.svg')"></nk-asset>
-                  <p>XING</p>
-                </a>
-              </div>
-              <div class="col-xs-4">
-                <a href="https://www.linkedin.com/in/nils-kolvenbach/" target="_blank" rel="noopener noreferrer">
-                  <nk-asset title="LinkedIn logo" type="image" :src="$withBase('/icons/linkedin.svg')"></nk-asset>
-                  <p>LinkedIn</p>
-                </a>
-              </div>
+            <div class="also-on">
+              <a href="https://github.com/Nils-Kolvenbach" target="_blank" rel="noopener noreferrer">
+                <nk-asset title="GitHub logo" :square="true" type="image" :src="$withBase('/icons/github.svg')"></nk-asset>
+              </a>
+              <a href="https://www.xing.com/profile/Nils_Kolvenbach" target="_blank" rel="noopener noreferrer">
+                <nk-asset title="XING logo" :square="true" type="image" :src="$withBase('/icons/xing.svg')"></nk-asset>
+              </a>
+              <a href="https://www.linkedin.com/in/nils-kolvenbach/" target="_blank" rel="noopener noreferrer">
+                <nk-asset title="LinkedIn logo" :square="true" type="image" :src="$withBase('/icons/linkedin.svg')"></nk-asset>
+              </a>
             </div>
           </div>
           <div class="col-xs-12 col-md-4">
@@ -312,13 +303,19 @@ export default {
   }
 
   .also-on {
+    display: flex;
+
     a {
-      display: block;
+      flex: 0 0 $spacer * 2;
       color: $color-light;
-      text-align: center;
+      margin-right: $spacer;
+
+      .asset-container {
+        margin-top: 0;
+      }
 
       img {
-        filter: invert(1);
+        filter: invert(.8);
       }
 
       p {
@@ -328,6 +325,10 @@ export default {
       &:hover {
         text-decoration: none;
         color: $color-foreground;
+
+        img {
+          filter: invert(1);
+        }
       }
     }
   }

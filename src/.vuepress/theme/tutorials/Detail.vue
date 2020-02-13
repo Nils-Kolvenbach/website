@@ -3,7 +3,7 @@
     <div id="header">
       <div class="container">
         <div class="row">
-          <div class="col-xs-12 col-md-8">
+          <div class="col-xs-12 col-md-6">
             <p class="category">{{ $page.frontmatter.category }}</p>
             <h1>{{ $page.title }}</h1>
             <div class="row">
@@ -14,22 +14,37 @@
             <p>{{ $page.frontmatter.description }}</p>
             <nk-chip v-for="(tag) in $page.frontmatter.tags">{{ tag }}</nk-chip>
           </div>
-          <div class="col-xs-12 col-md-4">
-            <nk-card>
-              <h2>Lessons</h2>
-              <ul>
-                <li v-for="(lesson) in lessons">
-                  <a :href="lesson.path">
-                    {{ lesson.title }}
-                  </a>
-                </li>
-              </ul>
-            </nk-card>
+          <div class="col-xs-12 col-md-6">
+            <nk-asset :title="$page.title" :src="assetSrc" :type="assetType"></nk-asset>
           </div>
         </div>
       </div>
     </div>
-    <nk-article></nk-article>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <div id="content-container">
+              <Content/>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <nk-card title="Lessons">
+              <ol>
+                <li v-for="(lesson) in lessons">
+                  <p>
+                    <a :href="lesson.path">
+                      {{ lesson.title }}
+                    </a><br>
+                    {{ lesson.frontmatter.description }}
+                  </p>
+                </li>
+              </ol>
+            </nk-card>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -38,6 +53,7 @@
 
 #header {
   padding: $spacer * 2 0;
+  padding-bottom: $spacer * 4;
   background-color: $color-primary;
   color: $color-foreground;
 
@@ -52,6 +68,28 @@
 
   .card {
     color: $color-text;
+  }
+}
+
+section {
+  background-color: $color-foreground;
+
+  #content-container {
+    padding: $spacer * 2 0;
+  }
+
+  > .container > .row {
+    flex-direction: column-reverse;
+
+    @media only screen and (min-width: map-get($breakpoints, 'md')) {
+      flex-direction: row;
+    }
+  }
+
+  .card {
+    position: sticky;
+    top: $spacer * 2;
+    margin-top: -66px;
   }
 }
 
@@ -78,6 +116,20 @@ export default {
         }
       });
       return totalMinutesToRead;
+    },
+    assetType() {
+      if (this.$page.frontmatter.video) {
+        return 'youtube'
+      } else if (this.$page.frontmatter.image) {
+        return 'image';
+      }
+    },
+    assetSrc() {
+      if (this.$page.frontmatter.video) {
+        return this.$page.frontmatter.video;
+      } else if (this.$page.frontmatter.image) {
+        return this.$page.frontmatter.image;
+      }
     }
   }
 }
