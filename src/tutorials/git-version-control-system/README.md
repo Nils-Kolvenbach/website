@@ -3,7 +3,6 @@ title: "Version Control with Git"
 description: In this tutorial we will learn to use and love one of the most influencial workflow tools, which is basically used by every developer I've met so far.
 lang: en
 image: /images/git.png
-video: qDreU1-4CYo
 category: Basics
 tags: [Git, Version Control System (VCS), Source-Control Management (SCM)]
 ---
