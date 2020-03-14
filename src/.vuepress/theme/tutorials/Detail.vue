@@ -8,7 +8,7 @@
             <h1>{{ $page.title }}</h1>
             <div class="row">
               <p class="col-xs-12">
-                {{ totalMinutesToRead }} minutes to read all lessons
+                {{ totalMinutesToRead }} minutes to read this tutorial including all lessons
               </p>
             </div>
             <p>{{ $page.frontmatter.description }}</p>
@@ -27,13 +27,14 @@
           <div class="col-xs-12 col-md-5">
             <nk-card id="lessons" title="Lessons">
               <ol>
-                <li v-for="(lesson) in lessons">
-                  <p>
-                    <a :href="lesson.path">
-                      {{ lesson.title }}
-                    </a><br>
-                    {{ lesson.frontmatter.description }}
-                  </p>
+                <li v-for="(lesson, index) in lessons">
+                  <a :href="lesson.path">
+                    <span class="index">{{ index + 1 }}.</span>
+                    <div>
+                      <span class="title">{{ lesson.title }}</span>
+                      <span class="description">{{ lesson.frontmatter.description }}</span>
+                    </div>
+                  </a>
                 </li>
               </ol>
             </nk-card>
@@ -83,6 +84,57 @@ section {
   position: sticky;
   top: $spacer * 2;
   margin-top: -66px;
+
+  /deep/ .content {
+    padding: 0;
+
+    ol {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        border-bottom: 1px solid $color-light;
+
+        &:last-of-type {
+          border-bottom: none;
+        }
+
+        a {
+          display: flex;
+          align-items: center;
+          padding: $spacer $spacer * 2;
+          color: $color-text;
+
+          &:hover {
+            text-decoration: none;
+            background-color: $color-background;
+          }
+
+          .index {
+            margin-right: $spacer * 2;
+          }
+
+          >div {
+            width: 100%;
+          }
+
+          .title,
+          .description {
+            display: block;
+            padding-right: $spacer * 2;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .description {
+            color: $color-light;
+          }
+        }
+      }
+    }
+  }
 }
 
 #intro {
@@ -97,20 +149,32 @@ export default {
   props: ['value'],
 
   computed: {
+    /**
+     * Returns an array of lessons sorted by the order value from smallest to highest
+     */
     lessons() {
       return this.value.sort((a, b) => {
         return a.frontmatter.order - b.frontmatter.order;
       });
     },
+    /**
+     * Returns the time to read all lessons in minutes rounded up to the next largest whole number
+     */
     totalMinutesToRead() {
       let totalMinutesToRead = 0;
+      // Add the time to read from this intro page
+      totalMinutesToRead += this.$page.readingTime.minutes;
+      // Add the time to read of all lessons of this tutorial
       this.lessons.forEach((lesson) => {
         if (lesson.readingTime) {
-          totalMinutesToRead = totalMinutesToRead + Math.ceil(lesson.readingTime.minutes.toFixed(2));
+          totalMinutesToRead += lesson.readingTime.minutes;
         }
       });
-      return totalMinutesToRead;
+      return Math.ceil(totalMinutesToRead);
     },
+    /**
+     * Returns the type of asset available
+     */
     assetType() {
       if (this.$page.frontmatter.video) {
         return 'youtube'
@@ -118,6 +182,9 @@ export default {
         return 'image';
       }
     },
+    /**
+     * Returns the URL or path to the available asset
+     */
     assetSrc() {
       if (this.$page.frontmatter.video) {
         return this.$page.frontmatter.video;
