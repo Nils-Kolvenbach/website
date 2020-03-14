@@ -1,35 +1,31 @@
 <template>
   <div id="tutorial-detail">
-    <div id="header">
+    <header id="header">
       <div class="container">
         <div class="row">
-          <div class="col-xs-12 col-md-6">
+          <div class="col-xs-12 col-md-5">
             <p class="category">{{ $page.frontmatter.category }}</p>
             <h1>{{ $page.title }}</h1>
             <div class="row">
               <p class="col-xs-12">
-                {{ totalMinutesToRead }} minutes to read
+                {{ totalMinutesToRead }} minutes to read all lessons
               </p>
             </div>
             <p>{{ $page.frontmatter.description }}</p>
             <nk-chip v-for="(tag) in $page.frontmatter.tags">{{ tag }}</nk-chip>
           </div>
-          <div class="col-xs-12 col-md-6">
+          <div class="col-xs-12 col-md-7">
             <nk-asset :title="$page.title" :src="assetSrc" :type="assetType"></nk-asset>
           </div>
         </div>
       </div>
-    </div>
+    </header>
+
     <section>
       <div class="container">
         <div class="row">
-          <div class="col-xs-12 col-md-6">
-            <div id="content-container">
-              <Content/>
-            </div>
-          </div>
-          <div class="col-xs-12 col-md-6">
-            <nk-card title="Lessons">
+          <div class="col-xs-12 col-md-5">
+            <nk-card id="lessons" title="Lessons">
               <ol>
                 <li v-for="(lesson) in lessons">
                   <p>
@@ -42,6 +38,12 @@
               </ol>
             </nk-card>
           </div>
+          <div class="col-xs-12 col-md-7">
+            <article id="intro">
+              <nk-share></nk-share>
+              <Content/>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -50,12 +52,13 @@
 
 <style lang="scss" scoped>
 @import '../../scss/_variables.scss';
-
 #header {
   padding: $spacer * 2 0;
-  padding-bottom: $spacer * 4;
-  background-color: $color-primary;
-  color: $color-foreground;
+  padding-bottom: $spacer * 6;
+
+  .row {
+    align-items: center;
+  }
 
   .category {
     margin: 0;
@@ -66,35 +69,26 @@
     margin: 0;
   }
 
-  .card {
-    color: $color-text;
+  .asset-container {
+    border-radius: $border-radius;
+    overflow: hidden;
   }
 }
 
 section {
   background-color: $color-foreground;
-
-  #content-container {
-    padding: $spacer * 2 0;
-  }
-
-  > .container > .row {
-    flex-direction: column-reverse;
-
-    @media only screen and (min-width: map-get($breakpoints, 'md')) {
-      flex-direction: row;
-    }
-  }
-
-  .card {
-    position: sticky;
-    top: $spacer * 2;
-    margin-top: -66px;
-  }
 }
 
 #lessons {
-  padding-top: $spacer * 2;
+  position: sticky;
+  top: $spacer * 2;
+  margin-top: -66px;
+}
+
+#intro {
+  @media only screen and (min-width: map-get($breakpoints, 'md')) {
+    margin-top: -$spacer * 3.5;
+  }
 }
 </style>
 
