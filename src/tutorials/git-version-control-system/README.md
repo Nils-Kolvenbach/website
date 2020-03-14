@@ -1,31 +1,33 @@
 ---
-title: "Git"
-description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+title: "Version Control with Git"
+description: In this tutorial we will learn to use and love one of the most influencial workflow tools, which is basically used by every developer I've met so far.
 lang: en
-image: https://via.placeholder.com/1200x514
+image: /images/git.png
 video: qDreU1-4CYo
 category: Basics
-tags: [Git, Version Control System (VCS)]
+tags: [Git, Version Control System (VCS), Source-Control Management (SCM)]
 ---
 
 *[VCS]: Version Control System
-
-> Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
+*[SCM]: Source-Control Management
 
 ## What is Git?
-Git is a Version Control System (VCS). It makes it possible to jump back to any version of a file (hence the name) and helps developers to keep track of the big WH questions like:
+Git is a Version Control System (VCS) or Source-Control Management (SCM) software, that makes it possible to jump back to any previous version of a file.
+
+Let's say you are a designer, creating beautifull posterart or a developer writing code over the period of days, months and maybe even years. Then you most probably mess up at some time in the process. Wouldn't it be nice to have the ability to jump back in time and revert specific changes you've made?
+
+Also think about working together with multiple people around the world. How do you manage your work without accidentally overwriting someone elses, while working on the same files? Git and VCS in general is a solution to those problems. It helps you and the team you are working with 
+
+
+and helps developers to keep track of the big WH questions like:
 - What changed?
 - When did it change?
 - Who changed it?
 - Why did it change?
 
-## Why do I need Git?
-You will need to make yourself familiar working with it. Since almost all projects use some form of VCS and Git is the most used of all right now.
+## A bit of Git theory
 
-This is not without reason. Imagine yourself developing a simple website. Maybe you decide mid way you want to make a big layout change. How do you approach this problem? Do you just comment out all old code? Do you back it up inside a different folder? This may work for some time but what if it's the third, fourth, fifth time? This can become quite messy.
+### History
+In 2005 Linus Torvalds created Git for development of the Linux kernel. There where VCS's before Git and they've actually used one called BitKeeper. But the copyright holder Larry McVoy had withdrawn free use of the product.
 
-Development will also most probably take you more then one day to complete. Do you still know why you did this small change yesterday or a week later?
-
-And now think of a bigger project with multiple developers working together over a longer period. Where do you keep your files? How do you organise changes without overwriting each others work?
-
-Git and VCS in general is a solution of problems developers faced. 
+Linus wanted to use a VCS like BitKeeper, but none of the available free systems met his needs. He was not happy about the performance, needing 30 seconds to apply a patch would not scale to the development of the Linux kernel. Other 
