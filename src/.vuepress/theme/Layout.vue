@@ -9,7 +9,7 @@
         <ul class="show-md">
           <li><a href="/" :class="{ active: isHomePage($page) }">Home</a></li>
           <li><a href="/curriculum-vitae/" :class="{ active: isCv($page) }">Curriculum Vitae</a></li>
-          <!-- <li><a href="/tutorials/" :class="{ active: isTutorialIndex($page) || isTutorialDetail($page) || isLesson($page) }">Tutorials</a></li> -->
+          <li><a href="/tutorials/" :class="{ active: isTutorialIndex($page) || isTutorialDetail($page) || isLesson($page) }">Tutorials</a></li>
           <!-- <li><a href="/blog/" :class="{ active: isBlogIndex($page) || isBlogDetail($page) }">Blog</a></li> -->
         </ul>
         <button id="button-open-mobile-drawer" class="hide-md" @click="showDrawer = true" aria-label="Toggle for the mobile main menu drawer" aria-controls="mobile-drawer" :aria-expanded="showDrawer === true">
@@ -29,8 +29,8 @@
         <ul>
           <li><a href="/" :class="{ active: isHomePage($page) }">Home</a></li>
           <li><a href="/curriculum-vitae/" :class="{ active: isCv($page) }">Curriculum Vitae</a></li>
-          <!-- <li><a href="/tutorials/" :class="{ active: isTutorialIndex($page) || isTutorialDetail($page) || isLesson($page) }">Tutorials</a></li>
-          <li><a href="/blog/" :class="{ active: isBlogIndex($page) || isBlogDetail($page) }">Blog</a></li> -->
+          <li><a href="/tutorials/" :class="{ active: isTutorialIndex($page) || isTutorialDetail($page) || isLesson($page) }">Tutorials</a></li>
+          <!-- <li><a href="/blog/" :class="{ active: isBlogIndex($page) || isBlogDetail($page) }">Blog</a></li> -->
         </ul>
       </nav>
     </transition>
@@ -41,7 +41,7 @@
       <nk-article v-else-if="isBlogDetail($page)"></nk-article>
       <TutorialIndex v-else-if="isTutorialIndex($page)" :value="tutorials"></TutorialIndex>
       <TutorialDetail v-else-if="isTutorialDetail($page)" :value="lessonsOfTutorial"></TutorialDetail>
-      <nk-article v-else-if="isLesson($page)"></nk-article>
+      <TutorialLesson v-else-if="isLesson($page)"></TutorialLesson>
       <Page v-else></Page>
     </main>
     <footer id="app-footer">
@@ -85,9 +85,10 @@ import Page from '@theme/Page.vue';
 import BlogIndex from '@theme/blog/Index.vue';
 import TutorialIndex from '@theme/tutorials/Index.vue';
 import TutorialDetail from '@theme/tutorials/Detail.vue';
+import TutorialLesson from '@theme/tutorials/Lesson.vue';
 
 export default {
-  components: { Home, CurriculumVitae, Page, BlogIndex, TutorialIndex, TutorialDetail },
+  components: { Home, CurriculumVitae, Page, BlogIndex, TutorialIndex, TutorialDetail, TutorialLesson },
 
   data() {
     return {
