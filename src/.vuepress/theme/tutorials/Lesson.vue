@@ -1,16 +1,23 @@
 <template>
   <div id="nk-lesson">
     <header id="header">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-md-4">
-            This tutorial is part of the series "<a :href="parentTutorial.path">{{ parentTutorial.title }}</a>"
-          </div>
-          <div class="col-xs-12 col-md-4">
-            1
-          </div>
-          <div class="col-xs-12 col-md-4">
-            1
+      <div class="top">
+        <div class="container">
+          <h1>{{ $page.title }}</h1>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-md-4">
+              This tutorial is part of the series "<a :href="parentTutorial.path">{{ parentTutorial.title }}</a>"
+            </div>
+            <div class="col-xs-12 col-md-4">
+              1
+            </div>
+            <div class="col-xs-12 col-md-4">
+              1
+            </div>
           </div>
         </div>
       </div>
@@ -117,12 +124,29 @@ export default {
 #nk-lesson {
 
   #header {
-    padding: $spacer * 2 0;
-    background-color: $color-secondary;
+    .top {
+      background-color: $color-primary;
+      color: $color-foreground;
+      text-align: center;
+      padding-bottom: $spacer * 2;
+
+      h1 {
+        border: none;
+        margin: 0;
+      }
+    }
+
+    .bottom {
+      padding: $spacer * 2 0;
+      padding-bottom: $spacer * 14;
+      margin-bottom: $spacer * 2;
+      background-color: $color-foreground;
+    }
   }
 
   article {
     overflow: hidden;
+    margin-top: -$spacer * 14;
 
     /deep/ .content {
       padding-top: 0;
@@ -158,7 +182,7 @@ export default {
 
           span {
             display: block;
-            border-bottom: 1px solid $color-light;
+            border-bottom: 1px solid $color-divider;
           }
         }
       }

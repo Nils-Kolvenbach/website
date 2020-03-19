@@ -8,7 +8,7 @@
             <h1>{{ $page.title }}</h1>
             <div class="row">
               <p class="col-xs-12">
-                {{ totalMinutesToRead }} minutes to read this tutorial including all lessons
+                <nk-asset title="Time to read" :square="true" type="image" :src="$withBase('/icons/clock.svg')"></nk-asset> {{ totalMinutesToRead }} minutes total
               </p>
             </div>
             <p>{{ $page.frontmatter.description }}</p>
@@ -94,7 +94,7 @@ section {
       margin: 0;
 
       li {
-        border-bottom: 1px solid $color-light;
+        border-bottom: 1px solid $color-divider;
 
         &:last-of-type {
           border-bottom: none;

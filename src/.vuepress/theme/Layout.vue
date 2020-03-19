@@ -63,7 +63,7 @@
           </div>
           <div class="col-xs-12 col-md-4">
             <h6>Special thanks</h6>
-            <p>To Katerina Limpitsouni from unDraw for the awesome open-source illustrations and Font Awesome for their Free icons.</p>
+            <p>To Katerina Limpitsouni from unDraw for the awesome open-source illustrations and Font Awesome for their Free iconset.</p>
           </div>
           <div class="col-xs-12 col-md-4">
             <h6>Legal</h6>
@@ -269,7 +269,7 @@ export default {
 
   label {
     padding: $spacer / 2 $spacer;
-    border-bottom: 1px solid $color-light;
+    border-bottom: 1px solid $color-divider;
   }
 
   ul {

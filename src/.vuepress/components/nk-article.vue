@@ -121,7 +121,7 @@ export default {
 
           span {
             display: block;
-            border-bottom: 1px solid $color-light;
+            border-bottom: 1px solid $color-divider;
           }
         }
       }

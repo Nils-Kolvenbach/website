@@ -53,8 +53,8 @@
   }
 
   #no-match {
-    border-top: 1px solid $color-light;
-    border-bottom: 1px solid $color-light;
+    border-top: 1px solid $color-divider;
+    border-bottom: 1px solid $color-divider;
     padding: $spacer;
     text-align: center;
   }

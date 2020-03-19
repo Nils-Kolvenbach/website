@@ -14,11 +14,11 @@ input, select {
   color: $color-text;
   background-color: $color-foreground;
   background-clip: padding-box;
-  border: 1px solid $color-light;
+  border: 1px solid $color-divider;
   border-radius: $border-radius;
 
   &:focus {
-    outline-color: $color-light;
+    outline-color: $color-divider;
   }
 }
 

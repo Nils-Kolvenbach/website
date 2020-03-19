@@ -18,8 +18,9 @@ $color-danger: #c00;
 $color-text: #424242;
 $color-foreground: #FFF;
 $color-background: $color-secondary;
-$color-light: lighten($color-text, 50);
+$color-light: lighten($color-text, 40);
 $color-links: $color-tertiary;
+$color-divider: lighten($color-text, 60);
 
 /**
  * -- Fonts
