@@ -252,7 +252,7 @@ export default {
     }
 
     .icon {
-      font-size: $spacer * 3;
+      font-size: $spacer * 2;
       line-height: 1;
       color: $color-primary;
       margin-bottom: $spacer;

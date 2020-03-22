@@ -205,6 +205,7 @@ export default {
         font-weight: $font-weight-heading;
         line-height: 1.4;
         height: 30px;
+        white-space: nowrap;
       }
     }
 

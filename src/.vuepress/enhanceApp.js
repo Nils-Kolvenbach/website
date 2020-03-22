@@ -12,6 +12,5 @@ export default ({
 }) => {
   // Add new Font Awesome icons here
   library.add(faGithub, faXing, faLinkedin, faGraduationCap, faHandshake, faMugHot, faClock);
- 
   Vue.component('font-awesome-icon', FontAwesomeIcon);
 }
