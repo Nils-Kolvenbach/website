@@ -6,11 +6,7 @@
           <div class="col-xs-12 col-md-5">
             <p class="category">{{ $page.frontmatter.category }}</p>
             <h1>{{ $page.title }}</h1>
-            <div class="row">
-              <p class="col-xs-12">
-                <nk-asset title="Time to read" :square="true" type="image" :src="$withBase('/icons/clock.svg')"></nk-asset> {{ totalMinutesToRead }} minutes total
-              </p>
-            </div>
+            <p><font-awesome-icon :icon="['fas', 'clock']" /> {{ totalMinutesToRead }} minutes total</p>
             <p>{{ $page.frontmatter.description }}</p>
             <nk-chip v-for="(tag) in $page.frontmatter.tags">{{ tag }}</nk-chip>
           </div>

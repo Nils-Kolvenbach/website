@@ -16,12 +16,24 @@ export default {
   data() {
     return {
       cv: [
+        // {
+        //   image: '/images/tasks-completed.svg',
+        //   title: 'SEVEN PRINCIPLES AG',
+        //   subtitle: 'Consultant',
+        //   start: 'March 2020',
+        //   end: 'current',
+        //   location: 'Hamburg',
+        //   chips: ['C#', 'SSIS', 'SSAS', 'SSRS'],
+        //   content: [
+        //     '',
+        //   ]
+        // },
         {
           image: '/images/consulting.svg',
           title: 'SEVEN PRINCIPLES AG',
           subtitle: 'Junior Consultant',
           start: 'September 2018',
-          end: 'current',
+          end: 'February 2020',
           location: 'Hamburg',
           chips: ['Vue.js', 'DevOps', 'CI/CD', 'Git', 'PHP', 'Project Management', 'Scrum', 'WordPress'],
           content: [

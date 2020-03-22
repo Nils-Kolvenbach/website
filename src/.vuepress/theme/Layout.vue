@@ -51,13 +51,13 @@
             <h6>Find me on</h6>
             <div class="also-on">
               <a href="https://github.com/Nils-Kolvenbach" target="_blank" rel="noopener noreferrer">
-                <nk-asset title="GitHub logo" :square="true" type="image" :src="$withBase('/icons/github.svg')"></nk-asset>
+                <font-awesome-icon :icon="['fab', 'github']" />
               </a>
               <a href="https://www.xing.com/profile/Nils_Kolvenbach" target="_blank" rel="noopener noreferrer">
-                <nk-asset title="XING logo" :square="true" type="image" :src="$withBase('/icons/xing.svg')"></nk-asset>
+                <font-awesome-icon :icon="['fab', 'xing']" />
               </a>
               <a href="https://www.linkedin.com/in/nils-kolvenbach/" target="_blank" rel="noopener noreferrer">
-                <nk-asset title="LinkedIn logo" :square="true" type="image" :src="$withBase('/icons/linkedin.svg')"></nk-asset>
+                <font-awesome-icon :icon="['fab', 'linkedin']" />
               </a>
             </div>
           </div>
@@ -304,32 +304,15 @@ export default {
   }
 
   .also-on {
-    display: flex;
 
     a {
-      flex: 0 0 $spacer * 2;
+      font-size: $spacer * 2;
       color: $color-light;
       margin-right: $spacer;
-
-      .asset-container {
-        margin-top: 0;
-      }
-
-      img {
-        filter: invert(.8);
-      }
-
-      p {
-        margin-bottom: 0;
-      }
 
       &:hover {
         text-decoration: none;
         color: $color-foreground;
-
-        img {
-          filter: invert(1);
-        }
       }
     }
   }
