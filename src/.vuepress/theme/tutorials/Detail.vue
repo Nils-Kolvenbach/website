@@ -6,7 +6,7 @@
           <div class="col-xs-12 col-md-5">
             <p class="category">{{ $page.frontmatter.category }}</p>
             <h1>{{ $page.title }}</h1>
-            <p><font-awesome-icon :icon="['fas', 'clock']" /> {{ totalMinutesToRead }} minutes total</p>
+            <p class="meta"><font-awesome-icon :icon="['far', 'clock']" /> {{ totalMinutesToRead }} minutes total</p>
             <p>{{ $page.frontmatter.description }}</p>
             <nk-chip v-for="(tag) in $page.frontmatter.tags">{{ tag }}</nk-chip>
           </div>
