@@ -1,31 +1,33 @@
 <template>
   <div id="tutorials">
-    <header>
+    <header id="header">
       <div class="container">
         <h1>{{ $page.title }}</h1>
       </div>
     </header>
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
-        <div class="col-xs-12 col-md-4">
+        <div class="col-xs-12 col-md-4 col-lg-3">
           <label for="filter-search">Search</label>
           <input type="text" id="filter-search" v-model="filter.search">
-        </div>
-        <div class="col-xs-12 col-md-4">
           <label for="filter-category">Category</label>
           <select id="filter-category" v-model="filter.category">
             <option value="">All</option>
             <option v-for="(category) in categories">{{ category }}</option>
           </select>
-        </div>
-        <div class="col-xs-12 col-md-4">
           <label for="filter-tags">Tags</label>
-          <nk-chip v-for="(tag) in tags" @click="onTagClick(tag)" :link="true" :class="{ active: isTagActive(tag) }">{{ tag }}</nk-chip>
+          <nk-chip v-for="(tag) in tags" @click.native="onTagClick(tag)" :link="true" :class="{ active: isTagActive(tag) }">{{ tag }}</nk-chip>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-md-6" v-for="(tutorial) in filteredTutorials">
-          <nk-teaser :value="tutorial"></nk-teaser>
+        <div class="col-xs-12 col-md-8 col-lg-9">
+          <div class="row">
+            <template v-for="(tutorial) in tutorials">
+              <transition name="fade">
+                <div v-show="tutorial.show" class="col-xs-12 col-lg-6">
+                  <nk-teaser :value="tutorial"></nk-teaser>
+                </div>
+              </transition>
+            </template>
+          </div>
         </div>
       </div>
     </div>
@@ -34,11 +36,11 @@
 
 <style lang="scss" scoped>
 @import '../../scss/_variables.scss';
-header {
+#header {
   background-color: $color-primary;
   color: $color-foreground;
   text-align: center;
-  padding: $spacer * 2 0;
+  padding-bottom: $spacer * 2;
   margin-bottom: $spacer * 2;
 
   h1 {
@@ -76,24 +78,27 @@ export default {
   },
 
   computed: {
-    filteredTutorials() {
-      return this.value.filter((tutorial) => {
-        let show = true;
+    tutorials() {
+      return this.value.map((tutorial) => {
+        tutorial.show = true;
         // Filter out any tutorial not matching the full text search
-        if (this.filter.search !== '' && (tutorial.frontmatter.title.includes(this.filter.search) === false && tutorial.frontmatter.description.includes(this.filter.search) === false)) {
-          show = false;
+        if (this.filter.search !== '' && (
+          tutorial.frontmatter.title.toLowerCase().includes(this.filter.search.toLowerCase()) === false 
+          && tutorial.frontmatter.description.toLowerCase().includes(this.filter.search.toLowerCase()) === false
+        )) {
+          tutorial.show = false;
         }
         // Filter out any tutorial not matching the selected category
         if (this.filter.category !== '' && tutorial.frontmatter.category !== this.filter.category) {
-          show = false;
+          tutorial.show = false;
         }
         // Filter out any tutorial not matching the selected tags
         this.filter.tagsSelected.forEach((tag) => {
           if (tutorial.frontmatter.tags.includes(tag) === false) {
-            show = false;
+            tutorial.show = false;
           }
         });
-        return show;
+        return tutorial;
       });
     },
     categories() {

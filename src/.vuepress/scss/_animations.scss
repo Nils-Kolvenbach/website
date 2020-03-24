@@ -17,6 +17,25 @@
   animation: slide-in-right .2s reverse;
 }
 
+@keyframes slide-in-bottom {
+  from {
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slide-bottom-enter-active {
+  animation: slide-in-bottom .2s;
+}
+
+.slide-bottom-leave-active {
+  animation: slide-in-bottom .2s reverse;
+}
+
 .fade-enter-active, .fade-leave-active {
   transition: opacity 0.2s ease-in-out;
 }
