@@ -1,6 +1,6 @@
 ---
 title: "Version Control with Git"
-description: In this tutorial we will learn to use and love one of the most influencial workflow tools, which is basically used by every developer I've met so far.
+description: You will learn what Git is and how to use it from installation to maintaining a repository with multiple contributors. 
 lang: en
 image: /images/git.png
 category: Basics
@@ -13,11 +13,9 @@ tags: [Git, Version Control System (VCS), Source-Control Management (SCM)]
 ## What is Git?
 Git is a distributed Version Control System (VCS) or Source-Control Management (SCM) software, that makes it possible to track changes and jump back to any previous version of a file.
 
-## Why should I use Git?
-Let's say you are a designer, creating beautifull, digital posterart or a developer writing code over the period of days, months and maybe even years. Then you most probably mess up at some time in the process. Wouldn't it be nice to have the ability to jump back in time to a previous version?
+## Why should I use / learn Git?
+Let's say you are an designer, creating beautiful, digital posterart. Or you are an author writing books and articles. Or an developer writing code that drives business. Then you most probably mess up at some time in the process. Wouldn't it be nice to have the ability to jump back to a previous version and even work on multiple versions at the same time?
 
-Also think about working together with multiple people around the world. How do you manage your work without accidentally overwriting someone elses, while working on the same files? Git and VCS's in general provide solutions to these problems. It helps you answering questions like:
-- What changed?
-- When did it change?
-- Who changed it?
-- Why did it change?
+Also think about working together with multiple people around the world. How do you manage your work without accidentally overwriting someone elses, while working on the same files? Version Control Systems are designed to be a solution to these problems and Git is one of the most used ones today.[^trend] And if you are a developer chances are that you do not come around learning it at all.
+
+[^trend]: Based on personal impression and [Google Trends](https://trends.google.com/trends/explore?cat=32&date=all&q=%2Fm%2F05vqwg,%2Fm%2F012ct9,%2Fm%2F015_nz,%2Fm%2F09d6g,%2Fm%2F08441_)
