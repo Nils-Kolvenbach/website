@@ -1,7 +1,7 @@
 ---
 title: "Installation and configuration"
 order: 2
-description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+description: Let's start learning Git by installing and configuring it as well as creating our first Repository.
 lang: en
 image: /images/git.png
 youtube: qDreU1-4CYo
@@ -19,7 +19,7 @@ Then test your installation of Git by opening a Terminal / Command Prompt / Powe
 ![Terminal with git --version output](/images/terminal-git-version.png)
 :::
 
-If you get an error message
+Keep that window open since we will use it throughout this tutorial.
 
 ## Configure Git locally
 Git uses your name and email address to identify you and will bake this information into each and every commit. So you should start by telling Git this information right away. 
@@ -34,11 +34,5 @@ git config --global user.email "johndoe@example.com"
 :::
 
 ::: note
-The `--global` flag will set the given information for everything you do on your system. If you only want to change the information for the project you are currently `cd`'d into, omit this flag.
+The `--global` flag will set the given information for everything you do on your system. If you later on only want to change the information for the project you are currently `cd`'d into, omit this flag.
 :::
-
-### Initialize a new Git project
-Start by creating a folder that will contain all files we are going to add. Inside this folder 
-
-You don't need to create an account for using Git itself on your machine right now. 
-
