@@ -41,7 +41,7 @@
       <nk-article v-else-if="isBlogDetail($page)"></nk-article>
       <TutorialIndex v-else-if="isTutorialIndex($page)" :value="tutorials"></TutorialIndex>
       <TutorialDetail v-else-if="isTutorialDetail($page)" :value="lessonsOfTutorial"></TutorialDetail>
-      <TutorialLesson v-else-if="isLesson($page)"></TutorialLesson>
+      <TutorialLesson v-else-if="isLesson($page)" :value="lessons"></TutorialLesson>
       <Page v-else></Page>
     </main>
     <footer id="app-footer">
@@ -94,79 +94,7 @@ export default {
     return {
       showDrawer: false
     }
-  },
-
-  computed: {
-    posts() {
-      return this.$site.pages.filter((page) => {
-        return this.isBlogDetail(page);
-      });
-    },
-    tutorials() {
-      return this.$site.pages.filter((page) => {
-        return this.isTutorialDetail(page);
-      });
-    },
-    lessons() {
-      return this.$site.pages.filter((page) => {
-        return this.isLesson(page);
-      });
-    },
-    lessonsOfTutorial() {
-      return this.lessons.filter((lesson) => {
-        return lesson.path.includes(this.$page.path);
-      });
-    }
-  },
-
-  methods: {
-    isHomePage(page) {
-      return page.path === '/';
-    },
-    isBlogIndex(page) {
-      return page.path === '/blog/';
-    },
-    isBlogDetail(page) {
-      return page.path.startsWith('/blog/') && this.isBlogIndex(page) === false;
-    },
-    isTutorialIndex(page) {
-      return page.path === '/tutorials/';
-    },
-    isTutorialDetail(page) {
-      if (page.path.startsWith('/tutorials/') === false || this.isTutorialIndex(page) === true) {
-        return false;
-      }
-      return this.urlDepth(page.path) === 2;
-    },
-    isLesson(page) {
-      if (page.path.startsWith('/tutorials/') === false || this.isTutorialDetail(page) === true) {
-        return false;
-      }
-      return this.urlDepth(page.path) === 3;
-    },
-    isCv(page) {
-      if (page.path === '/curriculum-vitae/') {
-        return true;
-      }
-      return false;
-    },
-    urlDepth(url) {
-      // Remove beginning slash if existing
-      if (url.charAt(0) === '/') {
-        url = url.slice(1);
-      }
-      // Remove ending slash if existing
-      if (url.charAt(url.length - 1) === '/') {
-        url = url.slice(0, -1);
-      }
-      if (!url) {
-        return 0;
-      }
-      return url.split('/').length;
-    }
-  },
-
-  mounted() {}
+  }
 }
 </script>
 

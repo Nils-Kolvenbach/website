@@ -7,10 +7,10 @@
         </div>
       </div>
       <div class="bottom">
-        <div class="container">
+        <!-- <div class="container">
           <div class="row">
             <div class="col-xs-12 col-md-4">
-              This tutorial is part of the series "<a :href="parentTutorial.path">{{ parentTutorial.title }}</a>"
+              1
             </div>
             <div class="col-xs-12 col-md-4">
               1
@@ -19,7 +19,7 @@
               1
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </header>
     <div class="container">
@@ -57,6 +57,23 @@
             </header>
             <Content/>
           </nk-card>
+          <div class="row">
+            <div class="col-xs-12">
+              This tutorial is part of the series "<a :href="parentTutorial.path">{{ parentTutorial.title }}</a>"
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <a v-if="previousLesson" :href="previousLesson.path">
+                <strong>{{ previousLesson.frontmatter.title }}</strong><br>
+                {{ previousLesson.frontmatter.description }}
+              </a>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <a v-if="nextLesson" :href="nextLesson.path">
+                <strong>{{ nextLesson.frontmatter.title }}</strong><br>
+                {{ nextLesson.frontmatter.description }}
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -65,7 +82,7 @@
 
 <script>
 export default {
-  props: {},
+  props: ['value'],
 
   data() {
     return {
@@ -74,20 +91,24 @@ export default {
   },
 
   computed: {
-    parentTutorial() {
-      return this.$site.pages.find((page) => {
-        let currentPath = this.$page.path;
-        // Remove beginning slash if existing
-        if (currentPath.charAt(0) === '/') {
-          currentPath = currentPath.slice(1);
-        }
-        // Remove ending slash if existing
-        if (currentPath.charAt(currentPath.length - 1) === '/') {
-          currentPath = currentPath.slice(0, -1);
-        }
-        let currentPathArray = currentPath.split('/');
-        currentPathArray.pop();
-        return page.path === `/${currentPathArray.join('/')}/`;
+    /**
+     * Returns an array of lessons sorted by the order value from smallest to highest
+     */
+    lessons() {
+      return this.value.filter((lesson) => {
+        return lesson.path.includes(this.parentTutorial.path);
+      }).sort((a, b) => {
+        return a.frontmatter.order - b.frontmatter.order;
+      });
+    },
+    previousLesson() {
+      return this.lessons.find((lesson) => {
+        return lesson.frontmatter.order === this.$page.frontmatter.order - 1;
+      });
+    },
+    nextLesson() {
+      return this.lessons.find((lesson) => {
+        return lesson.frontmatter.order === this.$page.frontmatter.order + 1;
       });
     },
     minutesToRead() {
@@ -114,7 +135,7 @@ export default {
 
   mounted() {
     this.currentAbsoluteUrl = window.location.href;
-  }
+  },
 }
 </script>
 

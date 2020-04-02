@@ -1,3 +1,4 @@
+import MixinGlobal from './mixins/global';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faGraduationCap, faHandshake, faMugHot } from '@fortawesome/free-solid-svg-icons';
 import { faClock } from '@fortawesome/free-regular-svg-icons';
@@ -13,4 +14,7 @@ export default ({
   // Add new Font Awesome icons here
   library.add(faGithub, faXing, faLinkedin, faGraduationCap, faHandshake, faMugHot, faClock);
   Vue.component('font-awesome-icon', FontAwesomeIcon);
+
+  // Add our custom global mixin for shared logic
+  Vue.mixin(MixinGlobal);
 }
