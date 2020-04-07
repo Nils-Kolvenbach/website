@@ -57,9 +57,9 @@
 }
 
 .note-container {
-  background-color: $color-background;
-  border-color: $color-primary;
-  color: darken($color-primary, 20);
+  background-color: $color-note;
+  border-color: $color-note;
+  color: $color-primary;
 }
 
 .warning-container {

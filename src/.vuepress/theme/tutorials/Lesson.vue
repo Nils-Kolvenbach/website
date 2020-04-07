@@ -56,24 +56,24 @@
               </div>
             </header>
             <Content/>
+            <div id="outro">
+              <p>
+                This lesson is part of the series "<a :href="parentTutorial.path">{{ parentTutorial.title }}</a>". Found an error? Help <a :href="`https://github.com/Nils-Kolvenbach/website/edit/master/src/${$page.relativePath}`">optimizing this lesson</a> for other readers by submitting an issue or pull request on GitHub.
+              </p>
+              <div class="row">
+                <div class="col-xs-12 col-md-6 previous">
+                  <a v-if="previousLesson" :href="previousLesson.path" class="button">
+                    <font-awesome-icon :icon="['fas', 'chevron-left']" /><span>{{ previousLesson.frontmatter.title }}</span>
+                  </a>
+                </div>
+                <div class="col-xs-12 col-md-6 next">
+                  <a v-if="nextLesson" :href="nextLesson.path" class="button">
+                    {{ nextLesson.frontmatter.title }} <font-awesome-icon :icon="['fas', 'chevron-right']" />
+                  </a>
+                </div>
+              </div>
+            </div>
           </nk-card>
-          <div class="row">
-            <div class="col-xs-12">
-              This tutorial is part of the series "<a :href="parentTutorial.path">{{ parentTutorial.title }}</a>"
-            </div>
-            <div class="col-xs-12 col-md-6">
-              <a v-if="previousLesson" :href="previousLesson.path">
-                <strong>{{ previousLesson.frontmatter.title }}</strong><br>
-                {{ previousLesson.frontmatter.description }}
-              </a>
-            </div>
-            <div class="col-xs-12 col-md-6">
-              <a v-if="nextLesson" :href="nextLesson.path">
-                <strong>{{ nextLesson.frontmatter.title }}</strong><br>
-                {{ nextLesson.frontmatter.description }}
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -207,6 +207,26 @@ export default {
           }
         }
       }
+    }
+  }
+
+  #outro {
+    border-top: 1px solid $color-divider;
+    margin-top: $spacer * 2;
+    margin-left: -$spacer * 2;
+    margin-right: -$spacer * 2;
+    margin-bottom: $spacer;
+    padding-left: $spacer * 2;
+    padding-right: $spacer * 2;
+
+    a.button {
+      display: flex;
+      justify-content: space-between;
+      margin-top: $spacer;
+    }
+
+    .svg-inline--fa {
+      height: initial;
     }
   }
 }

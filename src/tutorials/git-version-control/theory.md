@@ -9,6 +9,8 @@ youtube: qDreU1-4CYo
 
 *[VCS]: Version Control System
 
+In this lesson you'll read about Git's history and some essential information how Git works. You don't need to understand everything here right now. Just keep in mind that this information is available. By reading further you should understand this section better. So come back to this lesson at any time of this tutorial for a nice "Aha" effect.
+
 ## History of Git
 From 2002 on, Linux kernel developers moved away from passing around their changes as patches via email, to using a proprietary VCS called BitKeeper. This was fine until 2005 where the company developing BitKeeper removed it's free-of-charge status.
 
@@ -62,3 +64,5 @@ You will see those everywhere when working with Git. This is because Git interna
 Git makes loosing data hard. As soon as you've committed your changes, you should be able to recover from accidentally overwriting something very easily.
 
 Even if you delete files from your Working Directory and commit those changes, Git will internally create a new snapshot without those files, instead of actually deleting them. This way you can always recover deleted or overwritten files.
+
+That should be enough theory for now. Let's go on with with the fun part in the next lesson.

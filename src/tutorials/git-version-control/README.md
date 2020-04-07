@@ -3,7 +3,7 @@ title: "Version Control with Git"
 description: You will learn what Git is and how to use it from installation to maintaining a repository with multiple contributors. 
 lang: en
 image: /images/git.png
-category: Basics
+category: Tools
 tags: [Git, Version Control System (VCS), Source-Control Management (SCM)]
 ---
 
