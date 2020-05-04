@@ -1,6 +1,6 @@
 ---
 title: "Hosting & working in a team"
-order: 6
+order: 5
 description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
 lang: en
 image: /images/git.png
