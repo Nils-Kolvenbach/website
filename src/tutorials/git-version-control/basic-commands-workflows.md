@@ -67,6 +67,6 @@ git restore my-first-file.txt
 You will notice that it appeared again. This also works with partial changes. Open the file with an editor of your choice and type `Hello World!`. With `git restore my-first-file.txt` it will reset to be blank again, because this is the last commit you've made.
 
 ### Switching to a previous commit
-But what about going back further in time? For this to test we first need some more commits to work with. Open our text file again and type `Hello World!`. Now add this change with `git add my-first-file.txt` and commit it with `git commit -m "Added a welcome message"`. Then repeat that one more time, but now replace the word "World" with your name.
+But what about going back further in time? For this to test we first need some more commits to work with. Open our text file again and type `Hello World!`. Now add this change with `git add my-first-file.txt` and commit it with `git commit -m "Added a welcome message"`. Then repeat that one more time, but now replace the word "World" with your name. Make sure to commit the change with `git commit -m "Personalized the welcome message"`.
 
-Once committed you can view a trace of commits by using the `git log -p`
+Once committed you can view a trace of commits by using the `git log` command. To add a bit more visualisation I would recomment to add some parameters like `git log --all --graph --decorate`.
