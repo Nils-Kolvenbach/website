@@ -6,6 +6,7 @@ code {
   font-size: $font-size-monospace;
   font-family: $font-family-monospace;
   border-radius: $border-radius / 2;
+  white-space: nowrap;
 }
 
 pre, pre[class*="language-"] {
@@ -24,6 +25,7 @@ pre, pre[class*="language-"] {
     padding: 0;
     padding-left: $spacer;
     background-color: transparent;
+    white-space: unset;
   }
 }
 

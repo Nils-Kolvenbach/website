@@ -29,8 +29,8 @@
         <ul>
           <li><a href="/" :class="{ active: isHomePage($page) }">Home</a></li>
           <li><a href="/curriculum-vitae/" :class="{ active: isCv($page) }">Curriculum Vitae</a></li>
-          <!-- <li><a href="/tutorials/" :class="{ active: isTutorialIndex($page) || isTutorialDetail($page) || isLesson($page) }">Tutorials</a></li>
-          <li><a href="/blog/" :class="{ active: isBlogIndex($page) || isBlogDetail($page) }">Blog</a></li> -->
+          <!-- <li><a href="/tutorials/" :class="{ active: isTutorialIndex($page) || isTutorialDetail($page) || isLesson($page) }">Tutorials</a></li> -->
+          <!-- <li><a href="/blog/" :class="{ active: isBlogIndex($page) || isBlogDetail($page) }">Blog</a></li> -->
         </ul>
       </nav>
     </transition>
@@ -41,7 +41,7 @@
       <nk-article v-else-if="isBlogDetail($page)"></nk-article>
       <TutorialIndex v-else-if="isTutorialIndex($page)" :value="tutorials"></TutorialIndex>
       <TutorialDetail v-else-if="isTutorialDetail($page)" :value="lessonsOfTutorial"></TutorialDetail>
-      <nk-article v-else-if="isLesson($page)"></nk-article>
+      <TutorialLesson v-else-if="isLesson($page)" :value="lessons"></TutorialLesson>
       <Page v-else></Page>
     </main>
     <footer id="app-footer">
@@ -51,19 +51,19 @@
             <h6>Find me on</h6>
             <div class="also-on">
               <a href="https://github.com/Nils-Kolvenbach" target="_blank" rel="noopener noreferrer">
-                <nk-asset title="GitHub logo" :square="true" type="image" :src="$withBase('/icons/github.svg')"></nk-asset>
+                <font-awesome-icon :icon="['fab', 'github']" />
               </a>
               <a href="https://www.xing.com/profile/Nils_Kolvenbach" target="_blank" rel="noopener noreferrer">
-                <nk-asset title="XING logo" :square="true" type="image" :src="$withBase('/icons/xing.svg')"></nk-asset>
+                <font-awesome-icon :icon="['fab', 'xing']" />
               </a>
               <a href="https://www.linkedin.com/in/nils-kolvenbach/" target="_blank" rel="noopener noreferrer">
-                <nk-asset title="LinkedIn logo" :square="true" type="image" :src="$withBase('/icons/linkedin.svg')"></nk-asset>
+                <font-awesome-icon :icon="['fab', 'linkedin']" />
               </a>
             </div>
           </div>
           <div class="col-xs-12 col-md-4">
             <h6>Special thanks</h6>
-            <p>To Katerina Limpitsouni from unDraw for the awesome open-source illustrations and Font Awesome for their Free icons.</p>
+            <p>To Katerina Limpitsouni from unDraw for the awesome open-source illustrations and Font Awesome for their Free iconset.</p>
           </div>
           <div class="col-xs-12 col-md-4">
             <h6>Legal</h6>
@@ -85,87 +85,16 @@ import Page from '@theme/Page.vue';
 import BlogIndex from '@theme/blog/Index.vue';
 import TutorialIndex from '@theme/tutorials/Index.vue';
 import TutorialDetail from '@theme/tutorials/Detail.vue';
+import TutorialLesson from '@theme/tutorials/Lesson.vue';
 
 export default {
-  components: { Home, CurriculumVitae, Page, BlogIndex, TutorialIndex, TutorialDetail },
+  components: { Home, CurriculumVitae, Page, BlogIndex, TutorialIndex, TutorialDetail, TutorialLesson },
 
   data() {
     return {
       showDrawer: false
     }
-  },
-
-  computed: {
-    posts() {
-      return this.$site.pages.filter((page) => {
-        return this.isBlogDetail(page);
-      });
-    },
-    tutorials() {
-      return this.$site.pages.filter((page) => {
-        return this.isTutorialDetail(page);
-      });
-    },
-    lessons() {
-      return this.$site.pages.filter((page) => {
-        return this.isLesson(page);
-      });
-    },
-    lessonsOfTutorial() {
-      return this.lessons.filter((lesson) => {
-        return lesson.path.includes(this.$page.path);
-      });
-    }
-  },
-
-  methods: {
-    isHomePage(page) {
-      return page.path === '/';
-    },
-    isBlogIndex(page) {
-      return page.path === '/blog/';
-    },
-    isBlogDetail(page) {
-      return page.path.startsWith('/blog/') && this.isBlogIndex(page) === false;
-    },
-    isTutorialIndex(page) {
-      return page.path === '/tutorials/';
-    },
-    isTutorialDetail(page) {
-      if (page.path.startsWith('/tutorials/') === false || this.isTutorialIndex(page) === true) {
-        return false;
-      }
-      return this.urlDepth(page.path) === 2;
-    },
-    isLesson(page) {
-      if (page.path.startsWith('/tutorials/') === false || this.isTutorialDetail(page) === true) {
-        return false;
-      }
-      return this.urlDepth(page.path) === 3;
-    },
-    isCv(page) {
-      if (page.path === '/curriculum-vitae/') {
-        return true;
-      }
-      return false;
-    },
-    urlDepth(url) {
-      // Remove beginning slash if existing
-      if (url.charAt(0) === '/') {
-        url = url.slice(1);
-      }
-      // Remove ending slash if existing
-      if (url.charAt(url.length - 1) === '/') {
-        url = url.slice(0, -1);
-      }
-      if (!url) {
-        return 0;
-      }
-      return url.split('/').length;
-    }
-  },
-
-  mounted() {}
+  }
 }
 </script>
 
@@ -204,6 +133,7 @@ export default {
         font-weight: $font-weight-heading;
         line-height: 1.4;
         height: 30px;
+        white-space: nowrap;
       }
     }
 
@@ -268,7 +198,7 @@ export default {
 
   label {
     padding: $spacer / 2 $spacer;
-    border-bottom: 1px solid $color-light;
+    border-bottom: 1px solid $color-divider;
   }
 
   ul {
@@ -303,32 +233,15 @@ export default {
   }
 
   .also-on {
-    display: flex;
 
     a {
-      flex: 0 0 $spacer * 2;
+      font-size: $spacer * 2;
       color: $color-light;
       margin-right: $spacer;
-
-      .asset-container {
-        margin-top: 0;
-      }
-
-      img {
-        filter: invert(.8);
-      }
-
-      p {
-        margin-bottom: 0;
-      }
 
       &:hover {
         text-decoration: none;
         color: $color-foreground;
-
-        img {
-          filter: invert(1);
-        }
       }
     }
   }

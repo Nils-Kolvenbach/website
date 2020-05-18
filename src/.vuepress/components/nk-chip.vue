@@ -37,7 +37,7 @@ export default {
   margin: $spacer / 2 0;
   margin-right: $spacer / 2;
   border-radius: ($font-size * $line-height) / 2;
-  border: 1px solid $color-light;
+  border: 1px solid $color-divider;
   vertical-align: middle;
   white-space: nowrap;
 

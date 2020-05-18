@@ -1,8 +1,8 @@
 ---
-title: "HTML"
-order: 3
+title: "Branching and merging"
+order: 4
 description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
 lang: en
-image: https://via.placeholder.com/1200x514
+image: /images/git.png
 youtube: qDreU1-4CYo
 ---

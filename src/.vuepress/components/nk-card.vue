@@ -47,7 +47,7 @@ export default {
     justify-content: space-between;
     padding: $spacer $spacer * 2;
     font-size: $font-size-big;
-    border-bottom: 1px solid $color-light;
+    border-bottom: 1px solid $color-divider;
 
     .title {}
 

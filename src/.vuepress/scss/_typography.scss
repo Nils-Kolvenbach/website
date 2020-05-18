@@ -8,12 +8,12 @@
 h1 {
   @include header-base;
   font-size: $font-size * 2;
-  border-bottom: 1px solid $color-light;
+  border-bottom: 1px solid $color-divider;
 }
 h2 {
   @include header-base;
   font-size: $font-size * 1.75;
-  border-bottom: 1px solid $color-light;
+  border-bottom: 1px solid $color-divider;
 }
 h3 {
   @include header-base;

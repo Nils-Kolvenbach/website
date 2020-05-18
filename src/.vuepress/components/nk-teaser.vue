@@ -1,10 +1,10 @@
 <template>
   <nk-card element="article">
     <header>
+      <nk-asset :title="value.title" :src="value.frontmatter.image" type="image" :href="value.path"></nk-asset>
       <p v-if="showCategory" class="category">{{ value.frontmatter.category }}</p>
       <h2><a :href="value.path">{{ value.title }}</a></h2>
-      <nk-asset :title="value.title" :src="value.frontmatter.image" type="image" :href="value.path"></nk-asset>
-      <nk-chip v-if="showTags" v-for="(tag) in value.frontmatter.tags">{{ tag }}</nk-chip>
+      <!-- <nk-chip v-if="showTags" v-for="(tag) in value.frontmatter.tags">{{ tag }}</nk-chip> -->
     </header>
     <p v-if="showDescription" class="description">{{ value.frontmatter.description }}</p>
   </nk-card>
@@ -40,6 +40,7 @@ export default {
 <style lang="scss" scoped>
 @import '../scss/_variables.scss';
 article {
+  overflow: hidden;
 
   header {
     .category {
@@ -53,6 +54,7 @@ article {
     }
   
     .asset-container {
+      margin-top: -$spacer;
       margin-left: -$spacer * 2;
       margin-right: -$spacer * 2;
     }
