@@ -50,7 +50,7 @@
         <div class="row">
           <div class="col-xs-12 col-md-6 col-lg-4">
             <h2>Full Stack: <br>Developing your project from Backend to Frontend</h2>
-            <p>With a focus on JavaScript I am able to create Websites with Vue.js, API's and Backends with Node.js and Desktop clients with Electron.</p>
+            <p>With a focus on JavaScript I am able to create websites with Vue.js, API's and backends with Node.js and desktop clients with Electron.</p>
             <div class="row">
               <div class="col-xs-6 col-md-3" v-for="(tech) in developmentStack" :key="tech.name">
                 <div class="technology">
@@ -74,7 +74,7 @@
           </div>
           <div class="col-xs-12 col-md-6 col-lg-4">
             <h2>DevOps: <br>Automating workflows to save you time and money</h2>
-            <p>I use CI/CD pipelines to automate processes from linting and testing to deploying your infrastructure.</p>
+            <p>I use CI/CD pipelines and Docker containers to automate processes from linting and testing to deploying your infrastructure.</p>
             <div class="row">
               <div class="col-xs-6 col-md-3" v-for="(tech) in toolStack" :key="tech.name">
                 <div class="technology">
@@ -92,7 +92,7 @@
         <div class="row">
           <div class="col-xs-12 col-md-6 col-lg-4">
             <h2>Consulting: <br>Helping your project to succeed</h2>
-            <p>Sometimes creating great applications is the easy part. I attended training for project management and was able to prove my ability to do so.</p>
+            <p>From idea to reality. I consult my clients, manage projects and provide solutions to keep them on track.</p>
           </div>
           <div class="col-xs-12 col-md-6 col-lg-8">
             <nk-asset title="Person consulting and analyzing" type="image" :src="$withBase('/images/consulting.svg')"></nk-asset>
@@ -100,6 +100,20 @@
         </div>
       </div>
     </section>
+    <!-- <section id="companies" class="container">
+      <nk-card title="A selection of companies I've worked with / for">
+        <h2>A selection of companies I've worked with / for</h2>
+        <div class="row">
+          <div class="col-xs-6 col-md-6" v-for="(company) in companies" :key="company.name">
+            <div class="technology">
+              <nk-asset :title="company.name + ' logo'" type="image" :src="$withBase(company.image)"></nk-asset>
+              <p>{{ company.name }}</p>
+              <nk-chip v-for="(task) in company.tasks">{{ task }}</nk-chip>
+            </div>
+          </div>
+        </div>
+      </nk-card>
+    </section> -->
   </div>
 </template>
 
@@ -141,6 +155,28 @@ export default {
         {
           name: 'Linux',
           image: '/icons/linux.svg'
+        }
+      ],
+      companies: [
+        {
+          name: 'Techniker Krankenkasse',
+          image: '/icons/techniker-krankenkasse.svg',
+          tasks: ['SEO Consulting']
+        },
+        {
+          name: 'International Service System A/S',
+          image: '/icons/iss.svg',
+          tasks: ['Development']
+        },
+        {
+          name: 'Berendsohn AG',
+          image: '/icons/berendsohn-ag.svg',
+          tasks: ['Project Management', 'Consulting' ,'Development']
+        },
+        {
+          name: 'PEPPERMYNTA UG',
+          image: '/icons/peppermynta.jpg',
+          tasks: ['Project Management', 'Consulting', 'Development']
         }
       ]
     }
@@ -300,5 +336,9 @@ export default {
       order: 2;
     }
   }
+}
+
+#companies {
+  text-align: center;
 }
 </style>
