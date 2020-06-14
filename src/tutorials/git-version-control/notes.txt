@@ -6,3 +6,4 @@ Traversy Media: Git & GitHub Crash Course For Beginners https://www.youtube.com/
 Code Insights: Learn Git in 20 Minutes https://www.youtube.com/watch?v=Y9XZQO1n_7c
 Missing Semester: Lecture 6: Version Control (git) (2020) https://www.youtube.com/watch?v=2sjqTHE0zok
 https://missing.csail.mit.edu/2020/version-control/
+NDC Conferences: How Effective Teams Use Git - Enrico Campidoglio https://www.youtube.com/watch?v=jw8yK5JV0xw

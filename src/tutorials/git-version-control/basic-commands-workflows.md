@@ -66,7 +66,16 @@ git restore my-first-file.txt
 
 You will notice that it appeared again. This also works with partial changes. Open the file with an editor of your choice and type `Hello World!`. With `git restore my-first-file.txt` it will reset to be blank again, because this is the last commit you've made.
 
+::: note
+This only works as long as you've not added the change. If you've already added the change to the staging area, use `git rm <your file name>` to remove it from there. And if you've already committed your change, then have a look below.
+:::
+
 ### Switching to a previous commit
 But what about going back further in time? For this to test we first need some more commits to work with. Open our text file again and type `Hello World!`. Now add this change with `git add my-first-file.txt` and commit it with `git commit -m "Added a welcome message"`. Then repeat that one more time, but now replace the word "World" with your name. Make sure to commit the change with `git commit -m "Personalized the welcome message"`.
 
-Once committed you can view a trace of commits by using the `git log` command. To add a bit more visualisation I would recomment to add some parameters like `git log --all --graph --decorate`.
+Once committed you can view a trace of commits by using the `git log` command. Here you can see the first commit hash, in my case this is `3251c4ed7dcff9cc0f2d833809419939bbed2c1b`. With the hash you are now able to go back to that specific commit.
+
+Type `git checkout <your commit hash>` to view the contents of you Working Directory at the time of the commit.
+To actually revert all changes (and commits) to a previous state, use the command `git reset --hard <your commit hash>`. 
+
+<!-- Once committed you can view a trace of commits by using the `git log` command. To add a bit more visualisation I would recommend to add some parameters like `git log --all --graph --decorate`. -->
