@@ -19,7 +19,7 @@
     "markdown-it-abbr": "^1.0.4",
     "markdown-it-footnote": "^3.0.2",
     "moment": "^2.24.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "sass-loader": "^8.0.0",
     "vuepress": "^1.4.0",
     "vuepress-plugin-clean-urls": "^1.1.1",
