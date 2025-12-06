@@ -1,1 +1,28 @@
 @import "tailwindcss";
+
+@keyframes crtAnimation {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 0 10000%;
+  }
+}
+
+body {
+  background-color: #061707;
+  color: white;
+
+  /* Vigniette Effect */
+  box-shadow: inset 0px 0px 3rem #000;
+
+  /* CRT Effect */
+  background-image: linear-gradient(0deg, #061707 10%, #fff1 50%, #061707 100%);
+  animation: crtAnimation 100s linear infinite;
+  background-size: 100% 90%;
+
+  /* Scanline Effect */
+  mask-image: linear-gradient(to bottom, #0005 50%, #000 50%);
+  mask-size: 100% 2px;
+}
