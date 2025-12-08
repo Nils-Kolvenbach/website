@@ -7,6 +7,7 @@ export default defineConfig({
   site: "https://nils-kolvenbach.dev",
   base: "/",
   trailingSlash: "always",
+  prefetch: true,
   vite: {
     plugins: [tailwindcss()],
   },
