@@ -1,0 +1,58 @@
+---
+import { cn } from '../util';
+import Button from './Button.astro';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+const { pathname } = Astro.url;
+
+const pages = [
+  { name: 'About', href: '/' },
+  { name: 'Curriculum Vitae', href: '/curriculum-vitae/' },
+];
+---
+
+<div class="h-full container mx-auto grid grid-cols-12 gap-12">
+  <div class="relative col-span-3">
+    <aside
+      class="grid gap-3 after:absolute after:-right-6 after:top-3 after:h-full after:border-l-2 after:border-white"
+    >
+      <strong class="text-xl font-bold">Navigation</strong>
+      <nav>
+        <ul class="flex flex-col gap-3">
+          {
+            pages.map(({ name, href }) => (
+              <li class="relative">
+                <Button
+                  href={href}
+                  class={cn(
+                    'after:absolute after:-right-6 after:bottom-6 after:w-6 after:border-b-2 after:border-green-600 after:border-dotted',
+                    pathname === href && 'after:border-white after:border-solid'
+                  )}
+                  isFullWidth
+                >
+                  {name}
+                </Button>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </aside>
+  </div>
+  <div class="col-span-9">
+    <main class="h-full relative">
+      <h2
+        class="text-2xl font-bold before:absolute before:-left-6 before:top-3 before:w-3 before:border-b-2"
+      >
+        {title}
+      </h2>
+      <div class="border-3 border-green-600/50" transition:animate="slide">
+        <slot />
+      </div>
+    </main>
+  </div>
+</div>

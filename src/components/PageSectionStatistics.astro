@@ -1,0 +1,33 @@
+---
+import PageSection from './PageSection.astro';
+
+const { href } = Astro.url;
+---
+
+<PageSection title="Statistics">
+  <div class="grid grid-cols-12 text-center">
+    <div class="col-span-4 px-3 py-1.5">
+      <p>
+        <span class="text-2xl font-bold">9.4</span>
+        <span class="">years</span>
+        <h4 class="text-xl font-bold">Web Development</h4>
+      </p>
+    </div>
+    <div
+      class="col-span-4 border-l-3 border-r-3 border-green-600/50 px-3 py-1.5"
+    >
+      <p>
+        <span class="text-2xl font-bold">17077</span>
+        <span class="">hours</span>
+        <h4 class="text-xl font-bold">Worked on client projects</h4>
+      </p>
+    </div>
+    <div class="col-span-4 px-3 py-1.5">
+      <p>
+        <span class="text-2xl font-bold">6404</span>
+        <span class="">cups</span>
+        <h4 class="text-xl font-bold">Coffee consumed</h4>
+      </p>
+    </div>
+  </div>
+</PageSection>

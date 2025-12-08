@@ -1,0 +1,20 @@
+---
+import { cn } from '../util';
+import Button from './Button.astro';
+
+interface Props {
+  title: string;
+  class?: string;
+}
+
+const { title, class: className } = Astro.props;
+---
+
+<div>
+  <div class="bg-green-600/50 px-3">
+    <h3 class="font-bold">{title}</h3>
+  </div>
+  <div class={className}>
+    <slot />
+  </div>
+</div>

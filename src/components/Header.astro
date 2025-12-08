@@ -1,6 +1,12 @@
-<header>
-  <div class="bg-green-600">
-    <h1 class="text-3xl">Hello world!</h1>
+---
+const { href } = Astro.url;
+---
+
+<header class="container mx-auto bg-green-600/50 px-3">
+  <div class="flex justify-between items-center">
+    <div>
+      Logged in as: <h1 class="inline font-bold">Nils Kolvenbach</h1>
+    </div>
+    <div>{href}</div>
   </div>
-  <div></div>
 </header>

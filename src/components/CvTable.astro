@@ -1,0 +1,41 @@
+---
+interface Props {
+  entries: {
+    company: string;
+    role: string;
+    description: string;
+    location: string;
+    startDate: Date;
+    endDate: Date;
+  }[];
+}
+
+const { entries } = Astro.props;
+---
+
+<table class="w-full table-auto">
+  <thead class="bg-green-600/50 px-3">
+    <tr>
+      <th>Date</th>
+      <th>Role & Company</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {
+      entries.map(
+        ({ company, role, description, location, startDate, endDate }) => (
+          <tr class="border-b-3 last:border-b-0 border-green-600/50 even:bg-green-600/10">
+            <td class="px-3 py-1.5">
+              {startDate.toLocaleDateString()} - {endDate.toLocaleDateString()}
+            </td>
+            <td class="px-3 py-1.5">
+              {role} @ {company} ({location})
+            </td>
+            <td class="px-3 py-1.5">{description}</td>
+          </tr>
+        )
+      )
+    }
+  </tbody>
+</table>

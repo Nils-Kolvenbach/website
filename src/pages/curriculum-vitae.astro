@@ -1,0 +1,54 @@
+---
+import CvTable from '../components/CvTable.astro';
+import Page from '../components/Page.astro';
+import Layout from '../layouts/Layout.astro';
+
+const cvEntries = [
+  {
+    role: 'Software Engineer',
+    description: 'Developed web applications using modern frameworks.',
+    company: 'Tech Corp',
+    location: 'New York, NY',
+    startDate: new Date('2020-01-01'),
+    endDate: new Date('2022-12-31'),
+  },
+  {
+    role: 'Software Engineer',
+    description: 'Developed web applications using modern frameworks.',
+    company: 'Tech Corp',
+    location: 'New York, NY',
+    startDate: new Date('2020-01-01'),
+    endDate: new Date('2022-12-31'),
+  },
+  {
+    role: 'Software Engineer',
+    description: 'Developed web applications using modern frameworks.',
+    company: 'Tech Corp',
+    location: 'New York, NY',
+    startDate: new Date('2020-01-01'),
+    endDate: new Date('2022-12-31'),
+  },
+  {
+    role: 'Software Engineer',
+    description: 'Developed web applications using modern frameworks.',
+    company: 'Tech Corp',
+    location: 'New York, NY',
+    startDate: new Date('2020-01-01'),
+    endDate: new Date('2022-12-31'),
+  },
+  {
+    role: 'Software Engineer',
+    description: 'Developed web applications using modern frameworks.',
+    company: 'Tech Corp',
+    location: 'New York, NY',
+    startDate: new Date('2020-01-01'),
+    endDate: new Date('2022-12-31'),
+  },
+];
+---
+
+<Layout>
+  <Page title="Curriculum Vitae">
+    <CvTable entries={cvEntries} />
+  </Page>
+</Layout>
