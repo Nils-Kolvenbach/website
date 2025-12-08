@@ -11,6 +11,7 @@
 }
 
 body {
+  font-size: var(--text-xl);
   background-color: #061707;
   color: white;
 
