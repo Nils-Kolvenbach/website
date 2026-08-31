@@ -5,49 +5,57 @@ import Layout from '../layouts/Layout.astro';
 
 const cvEntries = [
   {
-    role: 'Software Engineer',
-    description: 'Developed web applications using modern frameworks.',
-    company: 'Tech Corp',
-    location: 'New York, NY',
-    startDate: new Date('2020-01-01'),
-    endDate: new Date('2022-12-31'),
+    role: 'Product Owner / Teamlead',
+    description: [
+      'Wanting to take over more responsibility, I applied for a Product Owner position. In this role I was first responsible for the app "Mobiles Bezahlen" of Sparkassen-Finanzgruppe (largest banking group in Germany).',
+      'Together with a team of up to 16 developers, designers and testers I was planning and prioritizing the upcoming features and improvements together with stakeholders.',
+      'Later I additionally took over the Product Owner role for features of the app "Sparkasse" like "Wero", as well as the role of Teamlead.',
+    ],
+    company: 'Star Finanz-Software Entwicklung und Vertriebs GmbH',
+    location: 'Hamburg, Germany',
+    startDate: new Date('2021-10-01'),
+    endDate: new Date('2025-10-31'),
   },
   {
-    role: 'Software Engineer',
-    description: 'Developed web applications using modern frameworks.',
-    company: 'Tech Corp',
-    location: 'New York, NY',
-    startDate: new Date('2020-01-01'),
-    endDate: new Date('2022-12-31'),
+    role: 'Consultant & Developer',
+    description: [
+      'Back in Hamburg, I wanted to work in a larger company again. With my experience in consulting and development I found a suitable position in an international team, where I was mainly working on our proprietary Mobile Device Management software.',
+      'There I implemented a new frontend with Vue.js and took over tasks of the maintainer of various project parts. I also introduced them to GitLab with its CI/CD and helped with the transition from SVN to Git. I also worked directly with clients, consulting them on technical and infrastructural changes.',
+    ],
+    company: 'Seven Principles Mobility GmbH',
+    location: 'Hamburg, Germany',
+    startDate: new Date('2018-09-01'),
+    endDate: new Date('2021-09-30'),
   },
   {
-    role: 'Software Engineer',
-    description: 'Developed web applications using modern frameworks.',
-    company: 'Tech Corp',
-    location: 'New York, NY',
-    startDate: new Date('2020-01-01'),
-    endDate: new Date('2022-12-31'),
+    role: 'Self Employed Developer',
+    description: [
+      'I had to return to my home town for personal reasons. Since jobs in the IT industry are very scarce there, I made the decision to risk something by getting self-employed. It was not an easy time for me financially, but in the end it all worked out and I gained so much experience by doing it.',
+      "Being on my own I worked for SMB's, mainly creating websites and small internal projects. Since I had the opportunity to work independently, I was able to use the tech stack I wanted to try out. This is how I got in touch with Electron, which gave me the opportunity to use web technologies I already knew to create desktop applications.",
+    ],
+    company: 'Nils Kolvenbach (Einzelunternehmer)',
+    location: 'Cuxhaven, Germany',
+    startDate: new Date('2016-06-01'),
+    endDate: new Date('2018-10-31'),
   },
   {
-    role: 'Software Engineer',
-    description: 'Developed web applications using modern frameworks.',
-    company: 'Tech Corp',
-    location: 'New York, NY',
-    startDate: new Date('2020-01-01'),
-    endDate: new Date('2022-12-31'),
-  },
-  {
-    role: 'Software Engineer',
-    description: 'Developed web applications using modern frameworks.',
-    company: 'Tech Corp',
-    location: 'New York, NY',
-    startDate: new Date('2020-01-01'),
-    endDate: new Date('2022-12-31'),
+    role: 'Trainee SEO Consultant',
+    description: [
+      'During my "Ausbildung" and the creation of first websites for customers I came into contact with various SEO techniques like on-page, off-page and performance optimization. To deepen this knowledge, I applied for an SEO trainee program.',
+      'Getting a broader view on marketing and later specializing in technical SEO as well as gaining experience in consulting clients was very beneficial for my later work.',
+    ],
+    company: 'explido GmbH & Co. Kg',
+    location: 'Hamburg, Germany',
+    startDate: new Date('2015-04-01'),
+    endDate: new Date('2016-04-30'),
   },
 ];
 ---
 
-<Layout>
+<Layout
+  title="Curriculum Vitae | Nils Kolvenbach"
+  description="Curriculum Vitae (CV) of Nils Kolvenbach, a Full-Stack Web Developer, Product Owner and Consultant working from Cuxhaven."
+>
   <Page title="Curriculum Vitae">
     <CvTable entries={cvEntries} />
   </Page>

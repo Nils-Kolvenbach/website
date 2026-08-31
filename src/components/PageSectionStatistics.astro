@@ -1,30 +1,36 @@
 ---
+import { daysWorked, yearsDeveloped, yearsProductOwner } from '../util';
 import PageSection from './PageSection.astro';
-
-const { href } = Astro.url;
 ---
 
 <PageSection title="Statistics">
   <div class="grid grid-cols-12 text-center">
-    <div class="col-span-4 px-3 py-1.5">
+    <div class="col-span-3 px-3 py-1.5">
       <p>
-        <span class="text-2xl font-bold">9.4</span>
+        <span class="text-2xl font-bold">{yearsDeveloped().toFixed(1)}</span>
         <span class="">years</span>
-        <h4 class="text-xl font-bold">Web Development</h4>
+        <h4 class="text-xl font-bold">Development</h4>
+      </p>
+    </div>
+    <div class="col-span-3 border-l-3 border-green-600/50 px-3 py-1.5">
+      <p>
+        <span class="text-2xl font-bold">{yearsProductOwner().toFixed(1)}</span>
+        <span class="">years</span>
+        <h4 class="text-xl font-bold">Product Owner</h4>
       </p>
     </div>
     <div
-      class="col-span-4 border-l-3 border-r-3 border-green-600/50 px-3 py-1.5"
+      class="col-span-3 border-l-3 border-r-3 border-green-600/50 px-3 py-1.5"
     >
       <p>
-        <span class="text-2xl font-bold">17077</span>
+        <span class="text-2xl font-bold">{(daysWorked() * 8).toFixed()}</span>
         <span class="">hours</span>
-        <h4 class="text-xl font-bold">Worked on client projects</h4>
+        <h4 class="text-xl font-bold">Worked on products</h4>
       </p>
     </div>
-    <div class="col-span-4 px-3 py-1.5">
+    <div class="col-span-3 px-3 py-1.5">
       <p>
-        <span class="text-2xl font-bold">6404</span>
+        <span class="text-2xl font-bold">{(daysWorked() * 3).toFixed()}</span>
         <span class="">cups</span>
         <h4 class="text-xl font-bold">Coffee consumed</h4>
       </p>

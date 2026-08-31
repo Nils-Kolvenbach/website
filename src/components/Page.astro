@@ -12,10 +12,11 @@ const { pathname } = Astro.url;
 const pages = [
   { name: 'About', href: '/' },
   { name: 'Curriculum Vitae', href: '/curriculum-vitae/' },
+  { name: 'Test', href: '/test/' },
 ];
 ---
 
-<div class="h-full container mx-auto grid grid-cols-12 gap-12">
+<div class="grow container mx-auto grid grid-cols-12 gap-12">
   <div class="relative col-span-3">
     <aside
       class="grid gap-3 after:absolute after:-right-6 after:top-3 after:h-full after:border-l-2 after:border-white"
@@ -44,14 +45,16 @@ const pages = [
     </aside>
   </div>
   <div class="col-span-9">
-    <main class="h-full relative">
+    <main class="relative">
       <h2
         class="text-2xl font-bold before:absolute before:-left-6 before:top-3 before:w-3 before:border-b-2"
       >
         {title}
       </h2>
-      <div class="border-3 border-green-600/50" transition:animate="slide">
-        <slot />
+      <div>
+        <div class="border-0 border-green-600/50" transition:animate="slide">
+          <slot />
+        </div>
       </div>
     </main>
   </div>

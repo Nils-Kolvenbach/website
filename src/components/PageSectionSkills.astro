@@ -1,11 +1,86 @@
 ---
+import type { SvgComponent } from 'astro/types';
 import PageSection from './PageSection.astro';
+import JiraLogo from '../assets/logos/jira-logo.svg';
+import ConfluenceLogo from '../assets/logos/confluence-logo.svg';
+import FigmaLogo from '../assets/logos/figma-logo.svg';
+import TypeScriptLogo from '../assets/logos/typescript-logo.svg';
+import NodeJsLogo from '../assets/logos/node-js-logo.svg';
+import ElectronLogo from '../assets/logos/electron-logo.svg';
+import ReactLogo from '../assets/logos/react-logo.svg';
+import GitLogo from '../assets/logos/git-logo.svg';
+import DockerLogo from '../assets/logos/docker-logo.svg';
+import LinuxLogo from '../assets/logos/linux-logo.svg';
+
+const skills: {
+  category: string;
+  description: string;
+  technologies: {
+    name: string;
+    logo: SvgComponent;
+  }[];
+}[] = [
+  {
+    category: 'Product Ownership',
+    description:
+      'Managing the product lifecycle from ideation to delivery and beyond. With Agile methodologies I ensure that the team delivers value to their customers.',
+    technologies: [
+      { name: 'Jira', logo: JiraLogo },
+      { name: 'Confluence', logo: ConfluenceLogo },
+      { name: 'Figma', logo: FigmaLogo },
+    ],
+  },
+  {
+    category: 'Full Stack Development',
+    description:
+      "With a strong focus on TypeScript I am able to create websites with React, API's with Node.js and desktop applications with Electron.",
+    technologies: [
+      { name: 'TypeScript', logo: TypeScriptLogo },
+      { name: 'Node.js', logo: NodeJsLogo },
+      { name: 'Electron', logo: ElectronLogo },
+      { name: 'React', logo: ReactLogo },
+    ],
+  },
+  {
+    category: 'DevOps',
+    description:
+      'Using CI/CD pipelines and Docker containers to automate processes from linting and testing to deploying infrastructure.',
+    technologies: [
+      { name: 'Linux', logo: LinuxLogo },
+      { name: 'Git', logo: GitLogo },
+      { name: 'Docker', logo: DockerLogo },
+    ],
+  },
+  {
+    category: 'Consulting',
+    description:
+      'From idea to reality. Consulting clients, managing projects and providing solutions to keep them on track.',
+    technologies: [],
+  },
+];
 ---
 
-<PageSection title="Skills" class="p-3">
-  <h4>Lorem Ipsum</h4>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua.
-  </p>
+<PageSection title="Skills" class="p-12">
+  <div class="flex flex-col gap-12">
+    {
+      skills.map(({ category, description, technologies }) => (
+        <div class="flex even:flex-row-reverse text-right even:text-left gap-6">
+          <div class="flex-1">
+            <h4 class="font-bold">{category}</h4>
+            <p class="mb-3">{description}</p>
+          </div>
+          <div class="flex-1">
+            <ul class="grid gap-3 grid-cols-2">
+              {technologies.map((tech) => (
+                <li class="col-span-1 text-center">
+                  <tech.logo width="6rem" height="2rem" class="m-auto" />
+                  {tech.name}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))
+    }
+  </div>
 </PageSection>
